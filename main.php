@@ -11,7 +11,7 @@
 
 
 
-<nav>
+<nav id = "mainNav">
 
     <ul>
         <li><img src="images/shop.png" alt="icon" width="60" height="40"></li>
@@ -24,7 +24,7 @@
     </ul>
 
 </nav>
-<h1 class="container"">Sharara Store</h1>
+<h1 class="container">Sharara Store</h1>
 
 
 

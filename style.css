@@ -96,7 +96,15 @@ li a:hover {
 
 
 
+#login {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    background: darkgray;
+    width: 90%;
 
+    margin: 20px;
+}
 
 #resgister {
     border-radius: 5px;
@@ -134,4 +142,17 @@ li a:hover {
     font-weight: bold;
     clear: both;
     width: 100%;
+}
+
+#items {
+
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    background: darkgray;
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
 }

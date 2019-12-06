@@ -15,9 +15,9 @@
 
     <ul>
         <li><img src="images/shop.png" alt="icon" width="60" height="40"></li>
-        <li><a href="">Home</a></li>
+        <li><a href="Home.php">Home</a></li>
 
-        <li><a href="">Register</a></li>
+        <li><a href="Registration.php">Register</a></li>
         <li><a href="">Art Works</a></li>
         <li><a href="" >Artists</a></li>
         <li style="float:right"><a href="">About Us</a></li>

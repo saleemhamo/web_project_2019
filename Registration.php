@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -8,7 +9,9 @@
 
 
 <body>
-<?php include("main.php"); ?>
+<?php
+//this script have 2 fuction the first submit into db the second is login.php
+ include("main.php"); ?>
 
 
 
@@ -83,20 +86,19 @@
            // This file also establishes a connection to MySQL
            // and selects the database.
            // Set the database access information as constants:
-           $dbhost = "1170381.studentswebprojects.ritaj.ps";
+         $dbhost = "1170381.studentswebprojects.ritaj.ps";
            $dbuser = "c107_1170381_19";
            $dbpass = "comp334!";
            $dbname = "c107_project_store";
-
            // create PDO Object:
-           $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname;port=3306",$dbuser, $dbpass);
+           $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);
 
            if(!$pdo ) {
                die("Could not connect to database");
            }else echo "Connected to Database";
 
            // Write the SQL statement string to select all items
-           $sqlStatement = "INSERT INTO customers ( name , email, address , phone , password) VALUES (?,?,?,?,?,?)";
+           $sqlStatement = "INSERT INTO customers ( name , email, address , phone , password) VALUES (?,?,?,?,?)";
 //to-do birth daaateeee
            // Prepare the statement
            $stmt = $pdo->prepare($sqlStatement);
@@ -117,8 +119,8 @@
 
        }?>
 
+      <br /><a href="main.php">Main-Login</a>
 
 </body>
 
 </html>
-

@@ -5,27 +5,70 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div>
-<?php
-include 'header.php';
+<?php include("main.php");
+
+
  $loggedIn= false;
 
 if($loggedIn)
 {?>
 
-    <section id="login">
+<!-- wergreh -->
 
-   <h1> Welcome!</h1>
-    </section>
 
 <?php
 }
 else {?>
+  <?php
+  session_name("login");
+  session_start();
+  $host = "1170381.studentswebprojects.ritaj.ps";
+           $username = "c107_1170381_19";
+           $password = "comp334!";
+           $database = "c107_project_store";
+  $message = "";
+  try
+  {
+     $connect = new PDO("mysql:host=$host; dbname=$database", $username, $password);
+     $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+     if(isset($_POST["login"]))
+     {
+        if(empty($_POST["email"]) || empty($_POST["password"]))
+        {
+         $message = '<label>All fields are required</label>';
+        }
+        else
+        {
+         $query = "SELECT * FROM customer WHERE email = :email AND password = :password";
+         $statement = $connect->prepare($query);
+         $statement->execute(
+            array(
+               'email'     =>     $_POST["email"],
+               'password'     =>     $_POST["password"] ,
 
 
-<section id="login">
 
-<form action="Home.php" method="post">
+
+            )
+         );
+         $count = $statement->rowCount();
+         if($count > 0)
+         {  					 $_SESSION["email"] = $_POST["email"];
+            header("location:main.php");
+     }
+         else
+         {
+            $message = '<label>Wrong Data</label>';
+         }
+        }
+     }
+  }
+  catch(PDOException $error)
+  {
+     $message = $error->getMessage();
+  }
+  ?>
+<form action="Home.php" method="post" id="login" class="col-30" style="width: 30%">
     <div>
         <img src="images/shop.png" alt="Logo" width="120" hight="80">
     </div>
@@ -39,8 +82,6 @@ else {?>
         <input type="submit" name="login" class="btn btn-info" value="Login" />
     </div>
 </form>
-</section>
-
 
 <?php
 
@@ -48,33 +89,16 @@ else {?>
 
     if($_SERVER['REQUEST_METHOD'] === 'POST' ) {
 
-    }?>
-
-<aside>
-    <table id="items" style="width:50%" >
-        <h2>Best Selling Product</h2>
-        <tr> <td><img src="images/shop.png" alt="image" width="200" hight="100"> </td></tr>
-
-        <tr><td>name</td></tr>
-
-        <tr><td>description</td></tr>
-
-        <tr><td>price</td></tr>
-
-        <tr> <td> <button> Add To Chart! </button></td>  </tr>
-    </table>
-</aside>
 
 
+    }
 
 
-<?php
-for( $i= 1 ; $i <= 6 ; $i++)
-{
-    ?>
-    <article>
-        <table id="items">
-            <tr> <td><img src="images/<?php echo $i;?>.jpg" alt="image" width="120" hight="80"> </td></tr>
+for( $i= 0 ; $i < 7 ; $i++)
+{  ?>
+    <div class="col-30">
+        <table id = "items">
+            <tr> <td><img src="images/shop.png" alt="image" width="120" hight="80"> </td></tr>
 
             <tr><td>name</td></tr>
 
@@ -84,14 +108,18 @@ for( $i= 1 ; $i <= 6 ; $i++)
 
         <tr> <td> <button> Add To Chart! </button></td>  </tr>
         </table>
-    </article>
+    </div>
+
+
+
 
 <?php
 }
+
+
 ?>
-</div>
+
+
 
 </body>
-<?php // include 'footer.html';?>
 </html>
-// TODO include Header

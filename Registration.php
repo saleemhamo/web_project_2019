@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -10,13 +10,12 @@
 
 <body>
 <?php
-//this script have 2 fuction the first submit into db the second is login.php
- include("main.php"); ?>
+include("header.php");
+ ?>
+<div>
 
-
-
-
-<form method="post" action="Registration.php" id ="resgister" >
+<!--Registration Form-->
+<form method="post" action="Registration.php" id ="register" >
    <filedset>
     <legend><h2>Register</h2></legend>
 
@@ -41,7 +40,8 @@
                <label for="dateOfBirth">Date of Birth</label>
            </div>
            <div class="col-40">
-<!--             <input type="date" name="dateOfBirth" placeholder="YYYY-MM-DD" >-->
+               <input type="date" name="dateOfBirth" placeholder="YYYY-MM-DD" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))" title="Enter a date in this format YYYY/MM/DD"/>
+<!--             <input type="date" name="dateOfBirth" placeholder="YYYY-MM-DD" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">-->
 <!-- to-do         dataformatas="yyyy mm dd" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])/(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])/(?:30))|(?:(?:0[13578]|1[02])-31))"-->
            </div>
        </div>
@@ -76,7 +76,9 @@
        <div class="row">
                <input type="submit" name="submit">
        </div>
-
+   </filedset>
+</form>
+</div>
        <?php
 
        // Check if request is POST
@@ -86,16 +88,17 @@
            // This file also establishes a connection to MySQL
            // and selects the database.
            // Set the database access information as constants:
-         $dbhost = "1170381.studentswebprojects.ritaj.ps";
-           $dbuser = "c107_1170381_19";
-           $dbpass = "comp334!";
-           $dbname = "c107_project_store";
+         $dbhost = "localhost";
+           $dbuser = "root";
+           $dbpass = "";
+           $dbname = "phpmyadmin";
            // create PDO Object:
            $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);
 
            if(!$pdo ) {
                die("Could not connect to database");
            }else echo "Connected to Database";
+
 
            // Write the SQL statement string to select all items
            $sqlStatement = "INSERT INTO customers ( name , email, address , phone , password) VALUES (?,?,?,?,?)";
@@ -105,22 +108,23 @@
 
            // Execute the SQL query and get all rows
            $status = $stmt->execute([$_POST['name'], $_POST['email'], $_POST['address'], $_POST['phone'], $_POST['password']]);
-
+           echo $stmt;
            // Check the status
            if($status ) {
                echo 'Data inserted successfully';
            }
            else {
+
                echo $stmt->error;
            }
 
-           // PHP will automatically close
-           // the connection when the script ends
 
        }?>
 
-      <br /><a href="main.php">Main-Login</a>
+
+
 
 </body>
+<?php include 'footer.html';?>
 
 </html>

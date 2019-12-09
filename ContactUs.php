@@ -1,4 +1,5 @@
 <?php
+//when press submet the message should upload to the server and shown to the admin this i think will be perfect
 ?>
 
 
@@ -9,11 +10,14 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body style="background:white">
+  <nav id = "mainNav">
 
+      <ul>
+          <li><img src="images/shop.png" alt="icon" width="60" height="40"></li>
+          <li><a href="Home.php">Home</a></li>
+      </ul>
 
-
-<nav id = "mainNav">
-
+  </nav>
   <form action="//submit.form" id="ContactUs100" method="post" onsubmit="return ValidateForm(this);">
   <table style="width:550px;border:0;" cellpadding="8" cellspacing="0">
   <tr> <td>
@@ -38,13 +42,11 @@
   <textarea name="MessageBody" rows="7" cols="40" style="width:350px;"></textarea>
   </td> </tr> <tr> <td>
   </td> <td>
+    <input type="reset" value="Reset Form" />
   <input name="skip_Submit" type="submit" value="Submit" />
   </td> </tr>
   </table>
   </form>
-
-
-</nav>
 <h1 class="container">Sharara Store</h1>
 
 

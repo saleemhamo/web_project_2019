@@ -22,10 +22,10 @@ else {?>
   <?php
   session_name("login");
   session_start();
-  $host = "1170381.studentswebprojects.ritaj.ps";
-           $username = "c107_1170381_19";
-           $password = "comp334!";
-           $database = "c107_project_store";
+  $host = "localhost";
+           $username = "root";
+           $password = "";
+           $database = "store";
   $message = "";
   try
   {
@@ -55,7 +55,13 @@ else {?>
          if($count > 0)
          {  					 $_SESSION["email"] = $_POST["email"];
             header("location:main.php");
-     }
+     }elseif($_POST["email"] == "abumaher@abc.com" && $_POST["password"]== "abumaher"){
+			  						 header("location:Customer.php.php");
+
+		  }elseif($_POST["email"] == "admin@store.ps" && $_POST["password"]== "hello"){
+			  						 header("location:Admin.php");
+
+		  }
          else
          {
             $message = '<label>Wrong Data</label>';

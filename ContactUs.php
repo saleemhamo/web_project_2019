@@ -1,8 +1,3 @@
-<?php
-//when press submet the message should upload to the server and shown to the admin this i think will be perfect
-?>
-
-
 <!doctype html>
 
 <head>
@@ -18,7 +13,7 @@
       </ul>
 
   </nav>
-  <form action="//submit.form" id="ContactUs100" method="post" onsubmit="return ValidateForm(this);">
+  <form method = "post" action="ContactUs.php">
   <table style="width:550px;border:0;" cellpadding="8" cellspacing="0">
   <tr> <td>
   <label for="Name">Sender Name :</label>
@@ -48,8 +43,24 @@
   </table>
   </form>
 <h1 class="container">Sharara Store</h1>
-
-
-
 </body>
 </html>
+<?php
+    if($_SERVER['REQUEST_METHOD'] === 'POST' ) {
+
+      $dbhost = "localhost";
+     $dbuser = "root";
+    $dbpass = "";
+    $dbname = "store";
+      $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);
+      $sqlStatement = "INSERT INTO messages(name, email, address, title, body) VALUES (?,?,?,?,?)";
+      $stmt = $pdo->prepare($sqlStatement);
+      $status = $stmt->execute([$_POST['Name'], $_POST['SenderEmail'], $_POST['SenderLocation'],$_POST['Messagetitle'],$_POST['MessageBody']]);
+      if($status ) {
+        echo 'Data inserted successfully';
+      }
+      else {
+        echo $stmt->error;
+      }
+    }
+	?>

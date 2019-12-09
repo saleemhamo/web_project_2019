@@ -11,8 +11,9 @@ if(isset($_SESSION["email"]))
 }
 else
 {
-  header("location:/phpAssigt/Home.php");
+  header("location:Home.php");
 }
+
 ?>
 
 <!doctype html>

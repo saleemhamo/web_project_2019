@@ -53,7 +53,7 @@
     <aside>
         <table id="items" style="width:50%" >
             <h2>Best Selling Product</h2>
-            <tr> <td><img src="images/shop.png" alt="image" width="200" hight="100"> </td></tr>
+            <tr> <td><a href="images/shop.png"><img src="images/shop.png" alt="image" width="200" hight="100"></a></td></tr>
 
             <tr><td>name</td></tr>
 
@@ -74,7 +74,7 @@
         ?>
         <article>
             <table id="items">
-                <tr> <td><img src="images/<?php echo $i;?>.jpg" alt="image" width="120" hight="80"> </td></tr>
+                <tr> <td><a href="images/<?php echo $i;?>.jpg"><img src="images/<?php echo $i;?>.jpg" alt="image" width="120" hight="80"></a></td></tr>
 
                 <tr><td>name</td></tr>
 
@@ -91,6 +91,7 @@
     ?>
 </div>
 
+<?php// include 'footer.html';?>
 </body>
-<?php include 'footer.html';?>
+
 </html>

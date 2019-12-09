@@ -109,6 +109,7 @@ li a:hover {
     width: 100%;
     border-color: black;
     border-style: solid;
+    height: 10%;
 }
 
 #items {

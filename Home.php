@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div>
+
+<article>
+<main>
     <?php
     include 'header.php';
     $loggedIn= false;
@@ -51,8 +53,9 @@
     }?>
 
     <aside>
+        <h2>Best Selling Product</h2>
         <table id="items" style="width:50%" >
-            <h2>Best Selling Product</h2>
+
             <tr> <td><a href="images/shop.png"><img src="images/shop.png" alt="image" width="200" hight="100"></a></td></tr>
 
             <tr><td>name</td></tr>
@@ -72,7 +75,7 @@
     for( $i= 1 ; $i <= 6 ; $i++)
     {
         ?>
-        <article>
+        <section>
             <table id="items">
                 <tr> <td><a href="images/<?php echo $i;?>.jpg"><img src="images/<?php echo $i;?>.jpg" alt="image" width="120" hight="80"></a></td></tr>
 
@@ -84,14 +87,14 @@
 
                 <tr> <td> <button> Add To Chart! </button></td>  </tr>
             </table>
-        </article>
+        </section>
 
         <?php
     }
     ?>
-</div>
+</main>
 
-<?php// include 'footer.html';?>
+</article>
 </body>
-
+<?php include 'footer.html';?>
 </html>

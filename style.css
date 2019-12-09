@@ -110,6 +110,8 @@ li a:hover {
     border-color: black;
     border-style: solid;
     height: 10%;
+    padding-bottom: 0px;
+
 }
 
 #items {
@@ -132,6 +134,31 @@ li a:hover {
     float: left;
     text-align: center;
     height: 400px;
+    width: 40%;
+    margin: 10px;
+    padding: 15px;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+article {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+}
+#message{
+
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    background: darkgray;
+    float: left;
+    text-align: center;
+    height: 500px;
     width: 40%;
     margin: 10px;
     padding: 15px;

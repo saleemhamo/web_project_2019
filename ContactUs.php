@@ -42,7 +42,7 @@
   <textarea name="MessageBody" rows="7" cols="40" style="width:350px;"></textarea>
   </td> </tr> <tr> <td>
   </td> <td>
-    <input type="reset" value="Reset Form" />
+    <input name="skip_Reset" type="reset" value="Reset Form" />
   <input name="skip_Submit" type="submit" value="Submit" />
   </td> </tr>
   </table>

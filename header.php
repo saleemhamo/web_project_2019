@@ -11,7 +11,7 @@
 <nav id = "mainNav">
 
     <ul>
-        <li><img src="images/shop.png" alt="icon" width="60" height="50"></li>
+        <li><a href="Home.php" style="padding: 0px"><img src="images/shop.png" alt="icon" width="60" height="50"></a></li>
         <li><a href="Home.php">Home</a></li>
 
         <li><a href="Registration.php">Register</a></li>
@@ -19,6 +19,7 @@
         <li><a href="" >Artists</a></li>
         <li><a href="Admin.php" >Admin Panel</a></li>
         <li><a href="ContactUs.php" >Contact Us</a></li>
+        <li><a href="customerPanel.php" >Customer</a></li>
 
 
         <li style="float:right"><a href="AboutUs.php">About Us</a></li>

@@ -14,7 +14,7 @@
 
     if($loggedIn)
     {?>
-
+            // TODO add session
         <section id="login">
 
             <h1> Welcome!</h1>

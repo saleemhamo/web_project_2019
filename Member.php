@@ -4,7 +4,7 @@
     <title>Sharara Store</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="background:white">
+<body>
 
 
 <nav id="mainNav">

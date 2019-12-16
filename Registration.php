@@ -91,7 +91,7 @@ include("header.php");
          $dbhost = "localhost";
            $dbuser = "root";
            $dbpass = "";
-           $dbname = "phpmyadmin";
+           $dbname = "web_project_1170381";
            // create PDO Object:
            $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);
 
@@ -101,19 +101,20 @@ include("header.php");
 
 
            // Write the SQL statement string to select all items
-           $sqlStatement = "INSERT INTO customers ( name , email, address , phone , password) VALUES (?,?,?,?,?)";
+           $sqlStatement = "INSERT INTO customers (name , email, address , telephone , password) VALUES (?,?,?,?,?)";
 //to-do birth daaateeee
            // Prepare the statement
            $stmt = $pdo->prepare($sqlStatement);
 
            // Execute the SQL query and get all rows
            $status = $stmt->execute([$_POST['name'], $_POST['email'], $_POST['address'], $_POST['phone'], $_POST['password']]);
-           echo $stmt;
+
            // Check the status
            if($status ) {
                echo 'Data inserted successfully';
            }
            else {
+               echo "ERROORR";
 
                echo $stmt->error;
            }

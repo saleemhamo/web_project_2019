@@ -103,7 +103,7 @@ li a:hover {
 
 
 #footer {
-    background-color: #4CAF50;
+    background-color: darkgreen;
     text-align: center;
      font-size: 1.5em;
     font-weight: bold;
@@ -127,6 +127,17 @@ li a:hover {
     margin: 10px;
 }
 
+#SingleItems {
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    background: darkgray;
+    float: left;
+    text-align: center;
+    height: 400px;
+    width: 100%;
+    margin: 10px;
+}
 #login {
     border-radius: 5px;
     border-color: black;
@@ -143,9 +154,11 @@ li a:hover {
 html, body {
     width: 100%;
     height: 100%;
+    background-color: #4CAF50;
 }
 
 article {
+
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;

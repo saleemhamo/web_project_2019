@@ -1,20 +1,34 @@
+<?php
+session_name('loggedIn');
+session_start();
+include 'dbConf.php';
+
+
+?>
 <!doctype html>
 <html>
 <head>
     <title>Sharara Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color:#4CAF50">
 
 <article>
 <main>
     <?php
     include 'header.php';
-    $loggedIn= false;
+   if(!isset($_SESSION['loggedIn']))
+   {
+       $loggedIn = false;
+   }
+   else
+   {
+       $loggedIn = true;
+
+   }
 
     if($loggedIn)
     {?>
-            // TODO add session
         <section id="login">
 
             <h1> Welcome!</h1>
@@ -50,7 +64,31 @@
 
     if($_SERVER['REQUEST_METHOD'] === 'POST' ) {
 
-    }?>
+        $sqlStatement = "SELECT COUNT(1) FROM customers WHERE email = '" . $_POST['email'] . "'";
+        // Prepare the results
+        $result = $pdo->query($sqlStatement);
+        // Execute the SQL query and get all rows
+        $row = $result->fetch();
+
+        if ($row[0] === "1") {
+            $sqlStatement = "SELECT * FROM customers WHERE email = '" . $_POST['email'] . "'";
+            $result = $pdo->query($sqlStatement);
+            $row = $result->fetch();
+
+            if ($row['password'] === $_POST['password']) {
+                $_SESSION['loggedIn'] = $row['id'];
+
+                echo "<h2>Welcome " . $row['name'] . "!</h2>";
+
+            } else {
+                echo "Incorrect Password!";
+
+            }
+        } else {
+            echo $_POST['email'] . "Does not Exist!";
+        }
+    }
+?>
 
     <aside>
         <h2>Best Selling Product</h2>

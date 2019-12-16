@@ -4,7 +4,7 @@
     <title>Sharara Store</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="background:white">
+<body>
 
 
 
@@ -15,11 +15,11 @@
         <li><a href="Home.php">Home</a></li>
 
         <li><a href="Registration.php">Register</a></li>
-        <li><a href="">Art Works</a></li>
+        <li><a href="artWorks.php">Art Works</a></li>
         <li><a href="" >Artists</a></li>
         <li><a href="Admin.php" >Admin Panel</a></li>
         <li><a href="ContactUs.php" >Contact Us</a></li>
-        <li><a href="customerPanel.php" >Customer</a></li>
+        <li><a href="customerPanel.php" ><Customer></Customer></a></li>
 
 
         <li style="float:right"><a href="AboutUs.php">About Us</a></li>

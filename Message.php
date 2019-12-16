@@ -4,7 +4,7 @@
     <title>Sharara Store</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="background:white">
+<body>
 
 
 
@@ -31,7 +31,7 @@
 
       $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);
 
-      $sqlStatement = "SELECT * FROM messages ";
+    //  $sqlStatement = "SELECT * FROM messages ";
 
       $stmt = $pdo->query($sqlStatement);
 

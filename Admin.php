@@ -5,9 +5,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include 'header.php';?>
+
 <article>
 <main>
+
+    <?php include 'header.php';?>
+
+
 
 
 
@@ -17,7 +21,6 @@
 
 
 
-<?php include 'footer.html';?>
 </body>
-
+<?php include 'footer.html';?>
 </html>

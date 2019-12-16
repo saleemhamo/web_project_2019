@@ -15,8 +15,7 @@
         <li><a href="Home.php">Home</a></li>
 
         <li><a href="Registration.php">Register</a></li>
-        <li><a href="artWorks.php">Art Works</a></li>
-        <li><a href="" >Artists</a></li>
+        <li><a href="products.php">Products</a></li>
         <li><a href="Admin.php" >Admin Panel</a></li>
         <li><a href="ContactUs.php" >Contact Us</a></li>
         <li><a href="customerPanel.php" ><Customer></Customer></a></li>

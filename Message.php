@@ -1,5 +1,7 @@
 <!doctype html>
-
+<?php
+include 'dbConf.php';
+?>
 <head>
     <title>Sharara Store</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -24,10 +26,6 @@
 </body>
 </html>
 <?php
-      $dbhost = "localhost";
-     $dbuser = "root";
-    $dbpass = "";
-    $dbname = "store";
 
       $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);
 

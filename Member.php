@@ -1,4 +1,6 @@
 <!doctype html>
+<?php include 'dbConf.php';
+ ?>
 <html>
 <head>
     <title>Sharara Store</title>
@@ -22,10 +24,7 @@
 </body>
 </html>
 <?php
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "store";
+
 
 $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 
@@ -64,5 +63,3 @@ while ($row = $stmt->fetch()) {
 <?php
 }
 ?>
-
-

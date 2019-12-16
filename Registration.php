@@ -1,4 +1,5 @@
-<!doctype html>
+<!doctype html><?php include 'dbConf.php';
+?>
 <html>
 
 <head>
@@ -88,10 +89,7 @@ include("header.php");
            // This file also establishes a connection to MySQL
            // and selects the database.
            // Set the database access information as constants:
-         $dbhost = "localhost";
-           $dbuser = "root";
-           $dbpass = "";
-           $dbname = "web_project_1170381";
+
            // create PDO Object:
            $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);
 

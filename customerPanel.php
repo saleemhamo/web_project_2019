@@ -8,7 +8,9 @@
 <article>
     <main>
         <?php
-    include 'header.php';?>
+    include 'header.php';
+    include 'dbConf.php';
+?>
 
 
 

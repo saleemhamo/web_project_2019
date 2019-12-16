@@ -70,15 +70,12 @@
 </article>
 
 </body>
-<?php include 'footer.html';?>
+<?php include 'footer.html';
+include 'dbConf.php';
+?>
 </html>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $dbhost = "localhost";
-    $dbuser = "root";
-    $dbpass = "";
-    $dbname = "store";
     $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
     $sqlStatement = "INSERT INTO messages(name, email, address, title, body) VALUES (?,?,?,?,?)";
     $stmt = $pdo->prepare($sqlStatement);

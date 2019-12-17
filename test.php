@@ -1,175 +1,3 @@
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<HTML>
-
-<HEAD>
-    <LINK href="myCSS.css" rel="stylesheet" type="text/css">
-    <TITLE>Dahir's Web Page</TITLE>
-</HEAD>
-
-<BODY>
-<DIV id="heading">
-
-    <DIV id="logo">
-        <A href="index.html">
-            <IMG src="myPicture.jpg" alt="My Picture Was Here!" STYLE="height:180px; width:150px">
-        </A>
-    </DIV>
-
-    <DIV id="headingtext">
-        <H1>
-            Hussein Dahir
-        </H1>
-
-        <DIV>
-            <address id="myAddress">
-                Ramallah - Beiteen
-            </address>
-        </DIV>
-    </DIV>
-</DIV>
-
-<DIV id="leftnav">
-    <DIV id="leftnavDiv">
-
-        <A href="Education.htm">
-            <DIV class="linkDiv">
-                Education
-            </DIV>
-        </A>
-
-        <A href="Employment.htm">
-            <DIV class="linkDiv highlited">
-                Employment
-            </DIV>
-        </A>
-
-        <A href="Awards.htm">
-            <DIV class="linkDiv">
-                Awards
-            </DIV>
-        </A>
-
-        <A href="Visited places.htm">
-            <DIV class="linkDiv">
-                Visited places
-            </DIV>
-        </A>
-
-        <A href="Schedule.htm">
-            <DIV class="linkDiv">
-                Schedule
-            </DIV>
-        </A>
-    </DIV>
-</DIV>
-
-<DIV id="center">
-    <DIV class="centerDiv">
-        <H2>
-            Employment:
-        </H2>
-        <P>
-            I worked in Samsung company for 2 years (2013-2015).
-        </P>
-
-        <DIV STYLE="padding: 1%; text-align: center">
-            <A href="http://www.samsung.com/" target="_blank">
-                <IMG src="samsung.jpg" alt="Samsung Logo" STYLE="height:300px; width:50%">
-            </A>
-        </DIV>
-
-        <P>
-            Then I moved to work in Apple Company since 2015 till now.
-        </P>
-
-        <DIV STYLE="padding: 1%; text-align: center">
-            <A href="http://www.apple.com" target="_blank">
-                <IMG src="apple.jpg" alt="Apple Logo" STYLE="height:300px; width:50%">
-            </A>
-        </DIV>
-
-    </DIV>
-</DIV>
-
-<DIV id="rightnav">
-
-    <DIV id="rightnavDiv">
-        <DIV class="rightnavPic">
-            <A target="_blank" href="IT113.jpg">
-                <IMG src="IT113.jpg" alt="Picture is Missing"  height="200px" width="95%">
-            </A>
-
-        </DIV>
-
-        <DIV class="rightnavPic">
-            <A target="_blank" href="ibnSina.jpg">
-                <IMG src="ibnSina.jpg" alt="Picture is Missing"  height="200px" width="95%">
-            </A>
-        </DIV>
-    </DIV>
-
-</DIV>
-
-<DIV id="footer">
-    COMP334, 2016
-</DIV>
-
-
-</BODY>
-</HTML>
-
-<?php
-session_name("login");
-session_start();
-$host = "1170381.studentswebprojects.ritaj.ps";
-$username = "c107_1170381_19";
-$password = "comp334!";
-$database = "c107_project_store";
-$message = "";
-try
-{
-    $connect = new PDO("mysql:host=$host; dbname=$database", $username, $password);
-    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    if(isset($_POST["login"]))
-    {
-        if(empty($_POST["email"]) || empty($_POST["password"]))
-        {
-            $message = '<label>All fields are required</label>';
-        }
-        else
-        {
-            $query = "SELECT * FROM customer WHERE email = :email AND password = :password";
-            $statement = $connect->prepare($query);
-            $statement->execute(
-                array(
-                    'email'     =>     $_POST["email"],
-                    'password'     =>     $_POST["password"] ,
-
-
-
-
-                )
-            );
-            $count = $statement->rowCount();
-            if($count > 0)
-            {  					 $_SESSION["email"] = $_POST["email"];
-
-            }
-            else
-            {
-                $message = '<label>Wrong Data</label>';
-            }
-        }
-    }
-}
-catch(PDOException $error)
-{
-    $message = $error->getMessage();
-}
-?>
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -178,30 +6,151 @@ catch(PDOException $error)
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <style>
+        /* Navbar container */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: Arial;
+        }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* The dropdown container */
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        /* Dropdown button */
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit; /* Important for vertical align on mobile phones */
+            margin: 0; /* Important for vertical align on mobile phones */
+        }
+
+        /* Add a red background color to navbar links on hover */
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        /* Add a grey background color to dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+    </style>
 </head>
 <body>
 
+<div class="navbar">
 
-<article>
+    <a href="Home.php" style="padding: 0px"><img src="images/shop.png" alt="icon" width="60" height="50"></a>
+    <a href="Home.php">Home</a>
+    <a href="Registration.php">Register</a>
+    <a href="products.php">Products</a>
+    <a href="Admin.php">Admin Panel</a>
+    <a href="ContactUs.php">Contact Us</a>
+    <a href="customerPanel.php">Customer</a>
 
-    <main>
-        //hearder
-    </main>
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Clothes</a>
+            <a href="#">Paintings</a>
+            <a href="#">Mud </a>
+        </div>
+    </div>
 
+    <a href="AboutUs.php" style="float:right">About Us</a>
+    <a href="logout.php" style="float:right">Logout</a>
+    <input type="text" value="Search" style="float:right; padding: 5px">
 
+</div>
 
-
-    <footer>
-        footer
-    </footer>
-</article>
+<h1 class="label1">Sharara Store</h1>
+<br>
 
 </body>
 </html>
 
 
-
-
-
-
-
+<!--<ul>-->
+<!--    <li><a href="Home.php" style="padding: 0px"><img src="images/shop.png" alt="icon" width="60" height="50"></a></li>-->
+<!--    <li><a href="Home.php">Home</a></li>-->
+<!---->
+<!--    <li><a href="Registration.php">Register</a></li>-->
+<!--    <li><a href="products.php">Products</a></li>-->
+<!--    <li><a href="Admin.php">Admin Panel</a></li>-->
+<!--    <li><a href="ContactUs.php">Contact Us</a></li>-->
+<!--    <li><a href="customerPanel.php">-->
+<!--            <Customer></Customer>-->
+<!--        </a></li>-->
+<!---->
+<!---->
+<!--    <li style="float:right"><a href="AboutUs.php">About Us</a></li>-->
+<!--    <li style="float:right"><a href="logout.php">Logout</a></li>-->
+<!--    <li style="float:right; padding: 5px"><input type="text" value="Search"></li>-->
+<!--</ul>-->
+<!---->
+<!--<nav class="mainNav">-->
+<!---->
+<!--    <ul>-->
+<!--        <li><a href="Home.php" style="padding: 0px"><img src="images/shop.png" alt="icon" width="60" height="50"></a></li>-->
+<!--        <li><a href="Home.php">Home</a></li>-->
+<!---->
+<!--        <li><a href="Registration.php">Register</a></li>-->
+<!--        <li><a href="products.php">Products</a></li>-->
+<!--        <li><a href="Admin.php" >Admin Panel</a></li>-->
+<!--        <li><a href="ContactUs.php" >Contact Us</a></li>-->
+<!--        <li><a href="customerPanel.php" ><Customer></Customer></a></li>-->
+<!---->
+<!---->
+<!--        <li style="float:right"><a href="AboutUs.php">About Us</a></li>-->
+<!--        <li style="float:right"><a href="logout.php">Logout</a></li>-->
+<!--        <li style="float:right; padding: 5px"><input type="text" value="Search"></li>-->
+<!--    </ul>-->
+<!---->
+<!--</nav>-->

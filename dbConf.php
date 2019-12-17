@@ -9,8 +9,8 @@ $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);
 
 if(!$pdo ) {
     die("Could not connect to database");
-}else echo "Connected to Database";
+}
 
-
+//else echo "Connected to Database";
 
 ?>

@@ -1,6 +1,9 @@
 <?php
 session_name('loggedIn');
+session_name('cart');
 session_start();
+
+
 include 'dbConf.php';
 
 
@@ -94,7 +97,7 @@ include 'dbConf.php';
         <h2>Best Selling Product</h2>
         <table id="items" style="width:50%" >
 
-            <tr> <td><a href="images/shop.png"><img src="images/shop.png" alt="image" width="200" hight="100"></a></td></tr>
+            <tr> <td><a href="images/shop.png"><img src="images/shop.png" alt="image" width="200" height="100"></a></td></tr>
 
             <tr><td>name</td></tr>
 
@@ -115,7 +118,7 @@ include 'dbConf.php';
         ?>
         <section>
             <table id="items">
-                <tr> <td><a href="images/<?php echo $i;?>.jpg"><img src="images/<?php echo $i;?>.jpg" alt="image" width="120" hight="80"></a></td></tr>
+                <tr> <td><a href="images/<?php echo $i;?>.jpg"><img src="images/<?php echo $i;?>.jpg" alt="image" width="120" height="80"></a></td></tr>
 
                 <tr><td>name</td></tr>
 

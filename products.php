@@ -27,13 +27,14 @@ foreach ($rows as $row)
         $f = $images[0];
     }
 
-
+echo $row['pid'];
     ?>
     <section id="SingleItems">
-        <div>
+        <a href=" <?php echo "singleProduct.php?&pid=".$row['pid'];?>">
+            <div>
 
-            <figure>
-                <img src="images/<?php echo $row['pid']."_".$f['figure'];?>.jpg" alt="image" width="100" height="100">
+            <figure style="float: left">
+                <img src="images/<?php echo $row['pid']."_".$f['figure'];?>.jpg" alt="image" width="350" height="350">
             </figure>
 
         </div>
@@ -51,6 +52,7 @@ foreach ($rows as $row)
                     <a href="">More Info</a>
 
         </div>
+        </a>
     </section>
     <?php
 }

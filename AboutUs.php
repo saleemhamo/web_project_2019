@@ -1,18 +1,3 @@
-<?php
-
-session_name("login");
-session_start();
-//
-//if(isset($_SESSION["email"]))
-//{
-//     echo '<h3>Login Success, Welcome - '.$_SESSION["email"].'</h3>';
-//}
-//else
-//{
-//  header("location:Home.php");
-//}
-
-?>
 <!doctype html>
 <html>
 <head>
@@ -23,6 +8,9 @@ session_start();
 <article>
     <main>
     <?php include("header.php");?>
+
+
+
 
 <p>The system will display information about this site. Be sure to mention that this site
 is hypothetical and was created as a term project for COMP334 Course at Birzeit

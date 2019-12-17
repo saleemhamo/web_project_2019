@@ -117,9 +117,45 @@ include 'dbConf.php';
 
     <?php
 }
+        ?>
 
-  echo "</table>";
-?>
+    <tr>
+        <form action="">
+            <td>
+
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td>
+                <input type="text">
+            </td>
+            <td colspan="2">
+                <input type="submit">
+            </td>
+
+
+        </form>
+    </tr>
+    </table>
 
 
 

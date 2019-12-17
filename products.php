@@ -1,5 +1,11 @@
-<?php include 'dbConf.php';
-include 'header.php';?>
+<?php
+session_name('loggedIn');
+session_start();
+
+include 'dbConf.php';
+include 'header.php';
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -14,6 +20,7 @@ $result = $pdo->query($sqlStatement);
 // Execute the SQL query and get all rows
 $rows = $result->fetchAll();
 
+echo $_SESSION['loggedIn'];
 
 
 foreach ($rows as $row)

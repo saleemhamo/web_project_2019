@@ -1,8 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<!--    <title>Sharara Store</title>-->
-<!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+
 </head>
 <style>
     /* Navbar container */
@@ -104,11 +103,11 @@
     <a href="AboutUs.php" style="float:right">About Us</a>
     <a href="logout.php" style="float:right">Logout</a>
     <input type="text" value="Search" style="float:right;margin: 2px; padding: 5px;width: 300px;height: 44px;">
-
+    <h1 class="label1">Sharara Store</h1>
+    <br>
 </div>
 
-<h1 class="label1">Sharara Store</h1>
-<br>
+
 
 
 

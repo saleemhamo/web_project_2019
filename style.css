@@ -108,14 +108,14 @@ input[type=submit] {
 
 
 #footer {
-    background-color: darkgreen;
+    background-color: #333333;
     text-align: center;
      font-size: 1.5em;
     font-weight: bold;
     width: 100%;
     border-color: black;
     border-style: solid;
-    height: 10%;
+    height: 15%;
     padding-bottom: 0px;
 
 }
@@ -148,11 +148,10 @@ input[type=submit] {
     border-color: black;
     border-style: solid;
     background: darkgray;
-    float: left;
     text-align: center;
     height: 400px;
     width: 40%;
-    margin: 10px;
+    margin: 50px 100px 100px 400px;
     padding: 15px;
 }
 
@@ -251,3 +250,6 @@ article {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
+

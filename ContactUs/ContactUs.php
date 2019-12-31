@@ -1,15 +1,21 @@
+<?php
+session_name('loggedIn');
+session_start();
+include '../HeaderAndFooter/header.php'; ?>
+
+
 <!doctype html>
 <html>
 <head>
     <title>Sharara Store</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body style="margin-top: 150px;">
 
 
 <article>
     <main>
-        <?php include 'header.php'; ?>
+
         <div id="message">
             <form method="post" action="ContactUs.php">
                 <table style="width:550px;border:0;" cellpadding="8" cellspacing="0">
@@ -70,8 +76,8 @@
 </article>
 
 </body>
-<?php include 'footer.html';
-include 'dbConf.php';
+<?php include '../HeaderAndFooter/footer.html';
+include '../shared/dbConf.php';
 ?>
 </html>
 <?php

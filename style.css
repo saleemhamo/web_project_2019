@@ -1,7 +1,9 @@
+/***********************************************************************************************************************************/
+.myForm{
 
-
+}
 /* Style inputs, select elements and textareas */
-input[type=text], select, textarea, input[type=password],input[type=number],input[type=date],input[type=email]{
+.myForm input[type=text], select, textarea, input[type=password],input[type=number],input[type=date],input[type=email]{
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -9,15 +11,8 @@ input[type=text], select, textarea, input[type=password],input[type=number],inpu
     box-sizing: border-box;
     resize: vertical;
 }
-
-/* Style the label to display next to the inputs */
-.label {
-    padding: 12px 12px 12px 12px;
-    display: inline-block;
-}
-
 /* Style the submit button */
-input[type=submit] {
+.myForm input[type=submit] {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -26,6 +21,7 @@ input[type=submit] {
     cursor: pointer;
     float: right;
 }
+/***********************************************************************************************************************************/
 
 /* Floating column for labels: 25% width */
 .col-40 {
@@ -38,6 +34,7 @@ input[type=submit] {
     float: left;
        width: 30%;
 }
+/***********************************************************************************************************************************/
 
 /* Clear floats after the columns */
 .row:after {
@@ -46,43 +43,48 @@ input[type=submit] {
     clear: both;
 }
 
-/*.mainNav ul {*/
-    /*list-style-type: none;*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-    /*overflow: hidden;*/
-    /*background-color: #333;*/
-/*}*/
-
-/*.mainNav li {*/
-    /*float: left;*/
-/*}*/
-
-/*.mainNav li a {*/
-    /*display: block;*/
-    /*color: white;*/
-    /*text-align: center;*/
-    /*padding: 14px 16px;*/
-    /*text-decoration: none;*/
-/*}*/
-
-/*!* Change the link color to #111 (black) on hover *!*/
-/*.mainNav li a:hover {*/
-    /*background-color: #111;*/
-/*}*/
-
-
-
+/* Style the label to display next to the inputs */
+.label {
+    padding: 12px 12px 12px 12px;
+    display: inline-block;
+}
 .label1{
     padding: 12px 12px 12px 12px;
     width: 100%;
-    margin: 10px 20px 10px 20px;
+    margin: 15px 20px 10px 20px;
     background: darkgray;
     border-radius: 5px;
     float: left;
 
 
 }
+.label1 h1{
+    float: left;
+    width: 50%;
+}
+.label1 form input[type=text]{
+    width: 30%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    margin: 15px 0px 15px 50px;
+}
+.label1 form input[type=submit]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;   width: 10%;
+    float: right;
+    margin-right:10px;
+    border-radius: 5px;
+    margin: 15px 50px 15px 0px;
+}
+
 
 .label2{
     padding: 12px 12px 12px 12px;
@@ -120,27 +122,28 @@ input[type=submit] {
 
 }
 
-#items {
-    border-radius: 5px;
-    border-color: black;
-    border-style: solid;
-    background: darkgray;
-    float: left;
-    text-align: center;
-    height: 400px;
-    width: 30%;
-    margin: 10px;
-}
+
 
 #SingleItems {
     border-radius: 5px;
     border-color: black;
     border-style: solid;
-    background: #333333;
+    background: #dddddd;
     float: left;
     text-align: center;
     height: 400px;
     width: 100%;
+    margin: 10px;
+}
+#SingleItemsPage {
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    background: #dddddd;
+    float: left;
+    text-align: center;
+    height: 1000px;
+    width: 99%;
     margin: 10px;
 }
 #login {
@@ -159,6 +162,7 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: #4CAF50;
+    margin-top: 70px;
 }
 
 article {
@@ -181,11 +185,17 @@ article {
     margin: 10px;
     padding: 15px;
 }
+
+/***********************************************************************************************************************************/
+
 /* Navbar container */
 .navbar {
     overflow: hidden;
     background-color: #333;
     font-family: Arial;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
 }
 
 /* Links inside the navbar */
@@ -214,11 +224,12 @@ article {
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
+    overflow: hidden;
 }
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: darkslategrey;
+    background-color: #4CAF50;
 }
 
 /* Dropdown content (hidden by default) */
@@ -229,6 +240,7 @@ article {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+
 }
 
 /* Links inside the dropdown */
@@ -239,6 +251,7 @@ article {
     text-decoration: none;
     display: block;
     text-align: left;
+
 }
 
 /* Add a grey background color to dropdown links on hover */
@@ -250,6 +263,36 @@ article {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+/***********************************************************************************************************************************/
+#items {
 
+}
+.homeProducts{
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    background: darkgray;
+    float: left;
+    text-align: center;
+    height: 300px;
+    width: 30%;
+    margin: 10px;
+    font-family: Arial;
 
+}
 
+.homeProducts input {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 30px;
+    margin-top: 30px;
+}
+.homeProducts ul li {
+    list-style-type: none;
+    margin: 10px;
+    font-family: "Agency FB";
+}

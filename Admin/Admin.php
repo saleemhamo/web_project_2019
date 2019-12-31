@@ -1,20 +1,42 @@
 <?php
 session_name('loggedIn');
 session_start();
-
-include 'dbConf.php';
+include '../HeaderAndFooter/header.php';
+include '../shared/dbConf.php';
 ?>
 <!doctype html>
 <html>
 <head>
     <title>Sharara Store</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<style>
 
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {background-color: darkgray;}
+
+</style>
+<body style="margin-top: 150px;">
+<script>
+    alert("You logged is as admin");
+
+</script>
 <article>
 <main>
-    <?php  include 'header.php';
+  <?php
 
     $sqlStatement = "SELECT * FROM products";
     // Prepare the results
@@ -23,7 +45,8 @@ include 'dbConf.php';
     $rows = $result->fetchAll();
 
    ?>
-    <table width="100%" border="1">
+    <div style="overflow-x:auto;">
+    <table>
         <tr>
             <th>
 
@@ -79,7 +102,7 @@ include 'dbConf.php';
            <tr>
             <td>
                 <figure>
-                    <img src="images/<?php echo $row['pid']."_".$f['figure'];?>.jpg" alt="image" width="100" height="100">
+                    <img src="../images/<?php echo $row['pid']."/".$f['figure'];?>.jpg" alt="image" width="100" height="100">
                 </figure>
             </td>
                <td>
@@ -156,9 +179,10 @@ include 'dbConf.php';
         </form>
     </tr>
     </table>
+    </div>
 
 
 
 </body>
-<?php include 'footer.html';?>
+<?php include '../HeaderAndFooter/footer.html';?>
 </html>

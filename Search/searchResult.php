@@ -45,14 +45,14 @@ try{
   <html>
   <head>
       <title>Search Result</title>
-          <link rel="stylesheet" type="text/css" href="style.css">
+          <link rel="stylesheet" type="text/css" href="../style.css">
 
   </head>
   <body>
   <div  id="result">
   <h1 class="label2">Search Result</h1>
   <?php
-  $sqlStatement = "SELECT * FROM products WHERE name LIKE '%$searchValue%'";
+  $sqlStatement = "SELECT * FROM products WHERE name LIKE '%Figs%'";
   // Prepare the results
   $result = $pdo->query($sqlStatement);
   // Execute the SQL query and get all rows

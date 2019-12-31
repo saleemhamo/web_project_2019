@@ -1,13 +1,18 @@
+<?php
+session_name('loggedIn');
+session_start();
+?>
+<?php include("../HeaderAndFooter/header.php");?>
 <!doctype html>
 <html>
 <head>
     <title>Sharara Store</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <article>
     <main>
-    <?php include("header.php");?>
+
 
 
 
@@ -21,7 +26,7 @@ of the project each member implemented.</p>
 
 
 
-    <?php include 'footer.html';?>
+    <?php include '../HeaderAndFooter/footer.html';?>
 
 </body>
 

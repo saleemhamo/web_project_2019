@@ -1,21 +1,25 @@
-<!doctype html><?php include 'dbConf.php';
+<?php
+session_name('loggedIn');
+session_start();
+?>
+<!doctype html><?php include '../shared/dbConf.php';
+?>
+<?php
+include("../HeaderAndFooter/header.php");
 ?>
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 
 </head>
 
 
-<body>
-<?php
-include("header.php");
-?>
+<body style="margin-top: 150px">
 <div>
 
     <!--Registration Form-->
-    <form method="post" action="Registration.php" id="register">
+    <form class="myForm" id="register" method="post" action="Registration.php">
         <fieldset>
             <legend><h2>Register</h2></legend>
 
@@ -33,6 +37,14 @@ include("header.php");
                 </div>
                 <div class="col-40">
                     <input type="email" name="email" placeholder="Enter your email..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-30">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-40">
+                    <input type="password" name="password" placeholder="Enter password..">
                 </div>
             </div>
             <div class="row">
@@ -60,14 +72,6 @@ include("header.php");
                     <input type="number" name="phone" placeholder="Enter your phone number..">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-30">
-                    <label for="password">Password</label>
-                </div>
-                <div class="col-40">
-                    <input type="password" name="password" placeholder="Enter password..">
-                </div>
-            </div>
 
             <div class="row">
                 <input type="submit" name="submit">
@@ -75,6 +79,7 @@ include("header.php");
         </fieldset>
     </form>
 </div>
+<!--TODO email login alert-->
 <?php
 
 // Check if request is POST
@@ -123,6 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 </body>
-<?php include 'footer.html'; ?>
+<?php include '../HeaderAndFooter/footer.html'; ?>
 
 </html>

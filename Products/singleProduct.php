@@ -24,8 +24,6 @@ include '../shared/dbConf.php';
             $result = $pdo->query($sqlStatement);
             // Execute the SQL query and get all rows
             $row = $result->fetch();
-
-
             $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
             // Prepare the results
             $result = $pdo->query($sqlStatement);
@@ -39,7 +37,9 @@ include '../shared/dbConf.php';
 
                             <figure style="float: left;">
                                 <img src="../images/<?php echo $row['pid'] . "/" . $image['figure']; ?>.jpg" alt="image"
-                                     width="300" height="300">
+                                     width="300" height="300" onClick="window.open(this.src)">
+                                     
+
                             </figure>
 
                         <?php
@@ -63,7 +63,7 @@ include '../shared/dbConf.php';
                             price :
                         </td>
                         <td>
-                            <?php echo $row['name'] ?>
+                            <?php echo $row['price'] ?>
                         </td>
                     </tr>
                     <tr>
@@ -86,6 +86,7 @@ include '../shared/dbConf.php';
 
 
                 </table>
+
                 <div   style="width: 100%; height = 100px;">
                     <button>Add to Cart!</button>
                 </div>

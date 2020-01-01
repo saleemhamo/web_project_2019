@@ -11,7 +11,6 @@
 
     <a href="../Home/Home.php" style="padding: 0px"><img src="../images/shop.png" alt="icon" width="60" height="50"></a>
     <a href="../Home/Home.php">Home</a>
-    <a href="../Registration/Registration.php">Register</a>
     <!--    <a href="products.php">Products</a>-->
     <a href="../Admin/Admin.php"">Admin Panel</a>
     <a href="../ContactUs/ContactUs.php">Contact Us</a>

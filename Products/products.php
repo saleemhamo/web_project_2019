@@ -46,25 +46,28 @@ include '../HeaderAndFooter/header.php';
                     <figure style="float: left">
                         <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
                              height="250">
+
                     </figure>
 
                 </div>
 
 
                 <div class="itemText">
-                    <p><?php echo $row['name'] ?></p>
-
-                    <p><?php echo $row['price'] ?></p>
-
-                    <p><?php echo $row['remarks'] ?></p>
+                    <p>Name: <strong><?php echo $row['name']; ?> </strong></p>
+                    <p>Price: <?php echo $row['price']; ?></p>
+                    <p>Remarks: <?php echo $row['remarks'];?></p>
 
                 </div>
-                
+
                 <form>
                     <input class="itemButtons" type="button" value="Add To Cart">
+
                 </form>
+                <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>" style="float: left; margin: 50px 200px 50px 20px;"><strong>More Info</strong></a>
             </a>
+
         </section>
+
         <?php
     }
     ?>
@@ -94,32 +97,36 @@ include '../HeaderAndFooter/header.php';
 //echo $row['pid'];
         ?>
 
+
         <section id="SingleItems">
-
             <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>">
-                <figure style="float: left">
-                    <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
-                         height="250">
-                </figure>
-            </a>
-            <div>
-                <h1>
-                    <?php echo $row['name'] ?>
-                </h1>
-                <p>
-                    <?php echo $row['description'] ?>
-                </p>
-                <br>
-                <ul>
-                     <li> Price: <?php echo $row['price'] ?></li>
-                    <li><?php echo $row['name'] ?></li>
-                    <li><?php echo $row['name'] ?></li>
-                    <li><?php echo $row['name'] ?></li>
+                <div>
 
-                </ul>
-            </div>
+                    <figure style="float: left">
+                        <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
+                             height="250">
+
+                    </figure>
+
+                </div>
+
+
+                <div class="itemText">
+                    <p>Name: <strong><?php echo $row['name']; ?> </strong></p>
+                    <p>Price: <?php echo $row['price']; ?></p>
+                    <p>Remarks: <?php echo $row['remarks'];?></p>
+
+                </div>
+
+                <form>
+                    <input class="itemButtons" type="button" value="Add To Cart">
+
+                </form>
+                <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>" style="float: left; margin: 50px 200px 50px 20px;"><strong>More Info</strong></a>
+            </a>
 
         </section>
+
         <?php
     }
     ?>
@@ -149,6 +156,7 @@ include '../HeaderAndFooter/header.php';
 //echo $row['pid'];
         ?>
 
+
         <section id="SingleItems">
             <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>">
                 <div>
@@ -156,25 +164,28 @@ include '../HeaderAndFooter/header.php';
                     <figure style="float: left">
                         <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
                              height="250">
+
                     </figure>
 
                 </div>
 
 
-                <div>
-
-
-                    <p><?php echo $row['name'] ?></p>
-
-                    <p><?php echo $row['price'] ?></p>
-
-                    <p><?php echo $row['remarks'] ?></p>
-
-                    <a href="">More Info</a>
+                <div class="itemText">
+                    <p>Name: <strong><?php echo $row['name']; ?> </strong></p><br>
+                    <p>Price: <?php echo $row['price']; ?></p><br>
+                    <p>Remarks: <?php echo $row['remarks'];?></p>
 
                 </div>
+
+                <form>
+                    <input class="itemButtons" type="button" value="Add To Cart">
+
+                </form>
+                <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>" style="float: left; margin: 50px 200px 50px 20px;"><strong>More Info</strong></a>
             </a>
+
         </section>
+
         <?php
     }
     ?>

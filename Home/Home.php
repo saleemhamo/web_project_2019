@@ -29,17 +29,17 @@ include '../HeaderAndFooter/header.php';
 
    }
 
-    if($loggedIn)
-    {?>
-        <section id="login">
-
-            <h1> Welcome <?php echo $_SESSION['loggedIn']['name'];?></h1>
-
-
-        </section>
-
-        <?php
-    }
+//    if($loggedIn)
+//    {?>
+<!--        <section id="login">-->
+<!---->
+<!--            <h1> Welcome --><?php //echo $_SESSION['loggedIn']['name'];?><!--</h1>-->
+<!---->
+<!---->
+<!--        </section>-->
+<!---->
+<!--        --><?php
+//    }
 
 ?>
 

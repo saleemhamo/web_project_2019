@@ -38,9 +38,12 @@ include '../shared/dbConf.php';
 
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password" required class="form-control"/>
-                    <input type="submit" name="login" class="btn btn-info" value="Login"/>
+                    <input style="float: left; margin: 15px 100px 10px 260px;" type="submit" name="login" value="Login"/>
                 </div>
             </form>
+
+            <br><br><br><br>
+            <a class="row" href="../Registration/Registration.php" style="float: left;">Create Account</a>
         </section>
 
 

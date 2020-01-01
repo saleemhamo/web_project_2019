@@ -44,25 +44,25 @@ include '../HeaderAndFooter/header.php';
                 <div>
 
                     <figure style="float: left">
-                        <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="350"
-                             height="350">
+                        <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
+                             height="250">
                     </figure>
 
                 </div>
 
 
-                <div>
-
-
+                <div class="itemText">
                     <p><?php echo $row['name'] ?></p>
 
                     <p><?php echo $row['price'] ?></p>
 
                     <p><?php echo $row['remarks'] ?></p>
 
-                    <a href="">More Info</a>
-
                 </div>
+                
+                <form>
+                    <input class="itemButtons" type="button" value="Add To Cart">
+                </form>
             </a>
         </section>
         <?php
@@ -98,8 +98,8 @@ include '../HeaderAndFooter/header.php';
 
             <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>">
                 <figure style="float: left">
-                    <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="350"
-                         height="350">
+                    <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
+                         height="250">
                 </figure>
             </a>
             <div>
@@ -154,8 +154,8 @@ include '../HeaderAndFooter/header.php';
                 <div>
 
                     <figure style="float: left">
-                        <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="350"
-                             height="350">
+                        <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
+                             height="250">
                     </figure>
 
                 </div>

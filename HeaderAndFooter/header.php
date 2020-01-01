@@ -43,15 +43,13 @@
 
     <div class="label1">
         <h1>Sharara Store</h1>
-        <form action="" method="get">
+        <form action="../search/searchResult.php" method="get">
 
-            <input type="text" value="Search">
+            <input type="text" value="Search" name="searchValue">
 
             <input type="submit" value="Search">
         </form>
-<!--style="float:right;margin: 2px; padding: 5px;width: 300px;height: 44px;"-->
     </div>
-
 
     <br>
 </div>

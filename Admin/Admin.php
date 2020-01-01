@@ -18,22 +18,49 @@ include '../shared/dbConf.php';
     }
 
     th {
-        background-color: #4CAF50;
+        text-align: left;
         color: white;
     }
     td {
         text-align: left;
         padding: 8px;
     }
+    tr{
+        height: 150px;
+    }
+    input [type=text]{
+        height: 50px;
+    }
+    input[type=submit],[type=button] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
 
     tr:nth-child(even) {background-color: darkgray;}
+    tr:nth-child(odd) {background-color: lightslategrey;}
+.adminNav{
+    width: 100%;
+}
+    .adminNav input{
+        background-color: #333333;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: left;
+        width: 30%;
+        margin 50px;
+    }
 
 </style>
-<body style="margin-top: 150px;">
-<script>
-    alert("You logged is as admin");
+<body style="margin-top: 150px">
 
-</script>
 <article>
 <main>
   <?php
@@ -45,9 +72,16 @@ include '../shared/dbConf.php';
     $rows = $result->fetchAll();
 
    ?>
+    <div class="adminNav row">
+        <a href="../admin/addNewProduct.php"><input type="button" value="Add New Product"></a>
+        <a href="../admin/viewCustomers.php"><input type="button" value="View Customers"></a>
+        <a href="../home/home.php"><input type="button" value="View Orders"></a>
+    </div>
+    <br>
+
     <div style="overflow-x:auto;">
-    <table>
-        <tr>
+    <table style="width=100%">
+        <tr style="height: 50px">
             <th>
 
             </th>
@@ -75,12 +109,9 @@ include '../shared/dbConf.php';
             <th>
                 quantity
             </th>
-            <th>
-                <button>Delete</button>
-            </th>
-            <th>
-                <button>Update</button>
-            </th>
+           <th colspan="2">
+
+           </th>
 
 
 
@@ -130,10 +161,10 @@ include '../shared/dbConf.php';
 
             <td> <?php echo $row['quantity']?>
                <td>
-                   <button>Delete</button>
+                   <input type="button" value="Delete" name="Delete"</input>
                </td>
                <td>
-                   <button>Update</button>
+                   <input type="button" value="Update" name="update"</input>
                </td>
            </tr>
 
@@ -142,42 +173,6 @@ include '../shared/dbConf.php';
 }
         ?>
 
-    <tr>
-        <form action="">
-            <td>
-
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td>
-                <input type="text">
-            </td>
-            <td colspan="2">
-                <input type="submit">
-            </td>
-
-
-        </form>
-    </tr>
     </table>
     </div>
 

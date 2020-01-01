@@ -50,58 +50,61 @@ include '../shared/dbConf.php';
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($_POST['email'] === "abumaher@abc.com") {
-                if($_POST['password'] === "abumaher")
-                {?>
+            if ($_POST['password'] === "abumaher") {
+                ?>
+                <script>
+                    alert("You logged is as admin");
 
+                </script>
                 <script>
                     window.location = '../admin/admin.php';
                 </script>
 
 
-                <?php
-                } else{
-                    ?>
+            <?php
+            } else{
+            ?>
                 <script>
-                   alert("Wrong admin password!");
+                    alert("Wrong admin password!");
                 </script>
 
 
             <?php
-                }
+            }
             } else {
 
-                $sqlStatement = "SELECT COUNT(1) FROM customers WHERE email = '" . $_POST['email'] . "'";
-                // Prepare the results
-                $result = $pdo->query($sqlStatement);
-                // Execute the SQL query and get all rows
-                $row = $result->fetch();
+            $sqlStatement = "SELECT COUNT(1) FROM customers WHERE email = '" . $_POST['email'] . "'";
+            // Prepare the results
+            $result = $pdo->query($sqlStatement);
+            // Execute the SQL query and get all rows
+            $row = $result->fetch();
 
-                if ($row[0] === "1") {
-                    $sqlStatement = "SELECT * FROM customers WHERE email = '" . $_POST['email'] . "'";
-                    $result = $pdo->query($sqlStatement);
-                    $row = $result->fetch();
+            if ($row[0] === "1") {
+            $sqlStatement = "SELECT * FROM customers WHERE email = '" . $_POST['email'] . "'";
+            $result = $pdo->query($sqlStatement);
+            $row = $result->fetch();
 
-                    if ($row['password'] === $_POST['password']) {
+            if ($row['password'] === $_POST['password']) {
 
 
-                        $_SESSION['loggedIn'] = [];
-                        $_SESSION['loggedIn'] = $row;
-                        $_SESSION['loggedIn']['cart'] = [];
-                        //                    header("location: Home.php");
-                        ?>
-                        <script>
-                            window.location = '../Home/Home.php';
-                        </script>
+            $_SESSION['loggedIn'] = [];
+            $_SESSION['loggedIn'] = $row;
+            $_SESSION['loggedIn']['cart'] = [];
+            //                    header("location: Home.php");
+            ?>
+                <script>
+                    window.location = '../Home/Home.php';
+                </script>
 
-                        <?php
+                <?php
 
-                    } else {
-                        echo "Incorrect Password!";
+            } else {
+                echo "Incorrect Password!";
 
-                    }
-                } else {
-                    echo $_POST['email'] . "Does not Exist!";
-                }
+            }
+            } else {
+                echo $_POST['email'] . "Does not Exist!";
+            }
             }
         }
 

@@ -40,17 +40,24 @@ include("../shared/dbConf.php");
 
 
                 <div class="itemText">
-                    <p><?php echo $row['name'] ?></p>
-
-                    <p><?php echo $row['price'] ?></p>
-
-                    <p><?php echo $row['remarks'] ?></p>
-
+                  <br>
+                       <ul>
+                           <li>
+                               <?php echo $row['name'] ?>
+                           </li>
+                           <li>
+                               <?php echo $row['price'] ?>$
+                           </li>
+                       </ul>
+                    <form>
+                      <a href="<?php echo "../shared/addTocart.php?pid=" . $row['pid']; ?>" class="itemButtons"
+                         style="margin: 120px 10px 50px 20px;"> Add To cart</a>
+                      <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>"
+                         style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>
+                    </form>
                 </div>
 
-                <form>
-                    <input class="itemButtons" type="button" value="Add To Cart">
-                </form>
+
             </a>
         </section>
         <?php

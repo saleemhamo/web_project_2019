@@ -29,24 +29,6 @@ include '../HeaderAndFooter/header.php';
 
    }
 
-//    if($loggedIn)
-//    {?>
-<!--        <section id="login">-->
-<!---->
-<!--            <h1> Welcome --><?php //echo $_SESSION['loggedIn']['name'];?><!--</h1>-->
-<!---->
-<!---->
-<!--        </section>-->
-<!---->
-<!--        --><?php
-//    }
-
-?>
-
-
-
-
-    <?php
     for( $i= 1 ; $i <= 6 ; $i++)
     {
     $sqlStatement = "SELECT * FROM products WHERE pid = '" . $i . "'";
@@ -69,8 +51,8 @@ include '../HeaderAndFooter/header.php';
         <section class="homeProducts">
                  <form id="items"   method="post" action="../products/singleproduct.php?pid=<?php echo $row['pid']; ?>">
                  <figure>
-                            <img src="../images/<?php echo $row['pid'] . "/" . $image['figure']; ?>.jpg" alt="image"
-                                 width="150" height="90px">
+                            <img id="myImg" src="../images/<?php echo $row['pid'] . "/" . $image['figure']; ?>.jpg" alt="image"
+                                 width="200" height="200">
                  </figure>
                 <br>
                      <ul>
@@ -78,7 +60,7 @@ include '../HeaderAndFooter/header.php';
                              <?php echo $row['name'] ?>
                          </li>
                          <li>
-                             <?php echo $row['price'] ?>
+                             <?php echo $row['price'] ?>$
                          </li>
                      </ul>
 <!--            input type="button" value="Add To cart" name="addToCart" onclick="addToCart()"></input></td>  </tr>-->
@@ -97,6 +79,36 @@ include '../HeaderAndFooter/header.php';
 </main>
 
 </article>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>
 </body>
 <?php include '../HeaderAndFooter/footer.html';?>
 </html>

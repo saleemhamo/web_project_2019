@@ -27,7 +27,7 @@ session_start();
                     Saleem Hamo - 1170381
                 </li>
                 <li>
-                    Laith
+                    Laith Bedah - 1143098
                 </li>
             </ul>
             Instructor:
@@ -37,7 +37,7 @@ session_start();
             </p>
         </div>
         <figure>
-            <img src="../images/ourPhoto.jpg" alt="photo" height="560" width="1024" style="margin-left: 180px">
+            <img src="../images/ourPhoto.jpg" alt="photo" height="400" width="724" style="margin-left: 300px">
         </figure>
 
 

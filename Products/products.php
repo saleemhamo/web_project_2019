@@ -4,14 +4,13 @@ session_start();
 
 include '../shared/dbConf.php';
 include '../HeaderAndFooter/header.php';
-
 ?>
 <!doctype html>
 <html>
 <head>
     <title>Products</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
-
+    <!--    <script type="text/javascript" src="../shared/addToCart.js"></script>-->
 </head>
 <body style="margin-top: 150px;">
 <div id="clothes">
@@ -40,35 +39,32 @@ include '../HeaderAndFooter/header.php';
         ?>
 
         <section id="SingleItems">
-            <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>">
-                <div>
+            <div>
 
-                    <figure style="float: left">
-                        <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
-                             height="250">
+                <figure style="float: left">
+                    <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
+                         height="250">
 
-                    </figure>
+                </figure>
 
-                </div>
+            </div>
 
 
-                <div class="itemText">
-                    <p>Name: <strong><?php echo $row['name']; ?> </strong></p>
-                    <p>Price: <?php echo $row['price']; ?></p>
-                    <p>Remarks: <?php echo $row['remarks'];?></p>
+            <div class="itemText">
+                <p>Name: <strong><?php echo $row['name']; ?> </strong></p>
+                <p>Price: <?php echo $row['price']; ?></p>
+                <p>Remarks: <?php echo $row['remarks']; ?></p>
 
-                </div>
+            </div>
 
-                <form>
-                    <input class="itemButtons" type="button" value="Add To Cart">
-
-                </form>
-                <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>" style="float: left; margin: 50px 200px 50px 20px;"><strong>More Info</strong></a>
-            </a>
+            <a href="<?php echo "../shared/addTocart.php?pid=" . $row['pid']; ?>" class="itemButtons"
+               style="margin: 120px 10px 50px 20px;"> Add To cart</a>
+            <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>"
+               style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>
 
         </section>
-
         <?php
+
     }
     ?>
 </div>
@@ -114,16 +110,16 @@ include '../HeaderAndFooter/header.php';
                 <div class="itemText">
                     <p>Name: <strong><?php echo $row['name']; ?> </strong></p>
                     <p>Price: <?php echo $row['price']; ?></p>
-                    <p>Remarks: <?php echo $row['remarks'];?></p>
+                    <p>Remarks: <?php echo $row['remarks']; ?></p>
 
                 </div>
 
-                <form>
-                    <input class="itemButtons" type="button" value="Add To Cart">
 
-                </form>
-                <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>" style="float: left; margin: 50px 200px 50px 20px;"><strong>More Info</strong></a>
-            </a>
+                <a href="<?php echo "../shared/addTocart.php?pid=" . $row['pid']; ?>" class="itemButtons"
+                   style="margin: 120px 10px 50px 20px;"> Add To cart</a>
+                <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>"
+                   style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>
+
 
         </section>
 
@@ -173,15 +169,16 @@ include '../HeaderAndFooter/header.php';
                 <div class="itemText">
                     <p>Name: <strong><?php echo $row['name']; ?> </strong></p><br>
                     <p>Price: <?php echo $row['price']; ?></p><br>
-                    <p>Remarks: <?php echo $row['remarks'];?></p>
+                    <p>Remarks: <?php echo $row['remarks']; ?></p>
 
                 </div>
 
-                <form>
-                    <input class="itemButtons" type="button" value="Add To Cart">
 
-                </form>
-                <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>" style="float: left; margin: 50px 200px 50px 20px;"><strong>More Info</strong></a>
+                <a href="<?php echo "../shared/addTocart.php?pid=" . $row['pid']; ?>" class="itemButtons"
+                   style="margin: 120px 10px 50px 20px;"> Add To cart</a>
+                <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>"
+                   style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>
+
             </a>
 
         </section>
@@ -190,6 +187,7 @@ include '../HeaderAndFooter/header.php';
     }
     ?>
 </div>
+
 
 </body>
 </html>

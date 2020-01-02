@@ -5,105 +5,146 @@ include("../HeaderAndFooter/header.php");
 include '../shared/dbConf.php';
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo ""; ?></title>
     <link rel="stylesheet" href="../style.css">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+    </style>
 </head>
-<body style="margin-top: 150px;">
-<article>
-    <main>
-        <?php
+<body style="margin-top: 150px">
 
-        if (isset($_GET['pid'])) {
+<?php
+
+if (isset($_GET['pid'])) {
 
 
-            $sqlStatement = "SELECT * FROM products WHERE pid = '" . $_GET['pid'] . "'";
-            // Prepare the results
-            $result = $pdo->query($sqlStatement);
-            // Execute the SQL query and get all rows
-            $row = $result->fetch();
-            $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
-            // Prepare the results
-            $result = $pdo->query($sqlStatement);
-            // Execute the SQL query and get all rows
-            $images = $result->fetchAll();
+    $sqlStatement = "SELECT * FROM products WHERE pid = '" . $_GET['pid'] . "'";
+    // Prepare the results
+    $result = $pdo->query($sqlStatement);
+    // Execute the SQL query and get all rows
+    $row = $result->fetch();
+    $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
+    // Prepare the results
+    $result = $pdo->query($sqlStatement);
+    // Execute the SQL query and get all rows
+    $images = $result->fetchAll();
+    ?>
+    <section id="SingleItemsPage">
+        <div style="width: 100%; height = 300px; position: center;">
+            <?php foreach ($images as $image) {
+                ?>
+
+                <figure style="float: left; margin: 10px 100px 20px 100px;">
+                    <img id="myImg" src="../images/<?php echo $row['pid'] . "/" . $image['figure']; ?>.jpg" alt="image"
+                         width="170" height="200">
+                </figure>
+
+                <?php
+            }
             ?>
-            <section id="SingleItemsPage">
-                <div style="width: 100%; height = 300px; position: center;">
-                    <?php foreach ($images as $image){
-                        ?>
+                <table class="singleProduct">
+                    <tr style="height: 50px">
 
-                            <figure style="float: left;">
-                                <img src="../images/<?php echo $row['pid'] . "/" . $image['figure']; ?>.jpg" alt="image"
-                                     width="300" height="300" onClick="window.open(this.src)">
-                                     
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            category
+                        </th>
+                        <th>
+                            price
+                        </th>
+                        <th>
+                            description
+                        </th>
+                        <th>
+                            size
+                        </th>
+                        <th>
+                            remarks
+                        </th>
 
-                            </figure>
 
-                        <?php
-                    }
-                    ?>
 
-                </div>
-
-                <table  style="width: 100%; margin: 100px;" border="1">
-
+                    </tr>
                     <tr>
-                        <td>
-                            Name :
-                        </td>
-                        <td>
+                        <th>
+                            <?php echo $row['pid'] ?>
+
+                        </th>
+
+                        <th>
                             <?php echo $row['name'] ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            price :
-                        </td>
-                        <td>
-                            <?php echo $row['price'] ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Name :
-                        </td>
-                        <td>
-                            <?php echo $row['name'] ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Name :
-                        </td>
-                        <td>
-                            <?php echo $row['name'] ?>
-                        </td>
-                    </tr>
+                        </th>
 
+                        <th>
+                            <?php echo $row['category'] ?>
+                        </th>
 
+                        <th>   <?php echo $row['price'] ?>
+                        </th>
 
+                        <th><?php echo $row['description'] ?>
+                        </th>
+
+                        <th>   <?php echo $row['size'] ?>
+                        </th>
+
+                        <th> <?php echo $row['remarks'] ?>
+                        </th>
+                    </tr>
                 </table>
 
-                <div   style="width: 100%; height = 100px;">
-                    <button>Add to Cart!</button>
-                </div>
-
-            </section>
-
-            <?php
-        }
-        ?>
+            <a href="<?php echo "../shared/addTocart.php?pid=".$row['pid'];?>" class="itemButtons" style="margin: 10px 50% 10px 20px;"> Add To cart</a>
 
 
-    </main>
-</article>
+
+        </div>
+    </section>
+
+    <?php
+}
+?>
 
 
-<?php include '../HeaderAndFooter/footer.html'; ?>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>
 
 </body>
-
 </html>

@@ -2,9 +2,7 @@
 session_name('loggedIn');
 session_start();
 ?>
-
 <!doctype html>
-<html lang="en">
 <head>
 </head>
 <body>
@@ -12,13 +10,23 @@ session_start();
 if(isset($_SESSION['loggedIn']))
 {
     array_push($_SESSION['loggedIn']['cart'],$_GET['pid']);
+    ?>
+    <script>
+        alert("Added To Shopping Basket!");
+    window.location = '../products/products.php';
+    </script>
+    <?php
 } else {
-    echo "Login first";
+    ?>
+    <script>
+
+        alert("Login First!");
+        window.location = '../login/login.php';
+    </script>
+
+<?php
 }
 
-print_r($_SESSION['loggedIn']['cart']);
-
-//header("location:home.php");
 ?>
 </body>
 </html>

@@ -3,6 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
+//$dbname = "c107applicationdb1170381";
 $dbname = "web_project_1170381";
 // create PDO Object:
 $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser, $dbpass);

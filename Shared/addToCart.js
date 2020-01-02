@@ -1,6 +1,5 @@
 var cart = new Array();
-function addToCart( product ) {
-    cart.push(product);
-
+function addToCart( productID ) {
+    cart.push(productID);
+    console.log(cart);
 }
-

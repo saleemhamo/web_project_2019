@@ -45,6 +45,7 @@ include '../shared/dbConf.php';
     tr:nth-child(odd) {background-color: lightslategrey;}
 .adminNav{
     width: 100%;
+    margin: 10px 20px 5px 250px;
 }
     .adminNav input{
         background-color: #333333;
@@ -75,7 +76,6 @@ include '../shared/dbConf.php';
     <div class="adminNav row">
         <a href="../admin/addNewProduct.php"><input type="button" value="Add New Product"></a>
         <a href="../admin/viewCustomers.php"><input type="button" value="View Customers"></a>
-        <a href="../home/home.php"><input type="button" value="View Orders"></a>
     </div>
     <br>
 

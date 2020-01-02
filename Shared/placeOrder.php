@@ -1,3 +1,8 @@
+<?php
+session_name('loggedIn');
+session_start();
+include "../Shared/dbConf.php";
+?>
 <!doctype html>
 
 <head>
@@ -19,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare($sqlStatement);
         $status = $stmt->execute($pid, $_SESSION['loggedIn']['cid']);
         if ($status) {
-            echo 'Data inserted successfully';
+            $_SESSION['loggedIn']['cid']= [];
         } else {
             echo $stmt->error;
         }
@@ -28,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <script>
-    window.location = '../home/home.php';
+    window.location = '../Home/Home.php';
 </script>
 </body>
 </html>

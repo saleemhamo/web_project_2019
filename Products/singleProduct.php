@@ -2,7 +2,7 @@
 session_name('loggedIn');
 session_start();
 include("../HeaderAndFooter/header.php");
-include '../shared/dbConf.php';
+include '../Shared/dbConf.php';
 
 ?>
 <!DOCTYPE html>
@@ -104,7 +104,7 @@ if (isset($_GET['pid'])) {
                     </tr>
                 </table>
 
-            <a href="<?php echo "../shared/addTocart.php?pid=".$row['pid'];?>" class="itemButtons" style="margin: 10px 50% 10px 20px;"> Add To cart</a>
+            <a href="<?php echo "../Shared/addToCart.php?pid=".$row['pid'];?>" class="itemButtons" style="margin: 10px 50% 10px 20px;"> Add To cart</a>
 
 
 

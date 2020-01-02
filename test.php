@@ -1,86 +1,109 @@
-<?php
-
-$_SESSION['loggedIn'] = [];
-//$_SESSION['loggedIn'] = $row;
-$_SESSION['loggedIn']['cart']= [];
-
-array_push($_SESSION['loggedIn']['cart'],"123");
-print_r($_SESSION['loggedIn']['cart']);
-array_push($_SESSION['loggedIn']['cart'],"789");
-print_r($_SESSION['loggedIn']['cart']);
-?>
-
-
-
-?>
-
-
-
-
-
-
-<?php
-session_name('loggedIn');
-session_start();
-include("../HeaderAndFooter/header.php");
-include '../shared/dbConf.php';
-
-?>
-<!doctype html>
+<!Doctype HTML>
 <html>
 <head>
-    <title><?php echo ""; ?></title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Saleem's Web Page</title>
 </head>
-<body style="margin-top: 150px;">
-<article>
+<nav>
+    <a href="/index.html">Main Page</a> |
+    <a href="/Assignments/assignment1/assignment1-part1.html">Assignment1-Part1</a> |
+    <a href="/Assignments/assignment1/assignment1-part2.html">Assignment1-Part2</a> |
+    <a href="/Assignments/assignment1/assignment1-part3.html">Contact US</a> |
+    <a href="/Labs/Lab3/items.php">Lab3</a> |
+    <a href="/Assignments/assignment2/ApplicationSystem/update.php">Assignment2-Update Profile</a> |
+    <a href="/Assignments/assignment2/ApplicationSystem/review.php">Assignment2-View Profile</a> |
+    <a href="/Assignments/assignment2/ApplicationSystem/admin.php">Assignment2-Admin</a> |
+    <a href="/Assignments/assignment2/ApplicationSystem/add.php">Assignment2-Add Application</a> |
+
+
+
+</nav>
+
+
+<body align="left">
+<header>
+    <h1>Welcome to Saleem's Web Page </h1>
+    <h2>Saleem Ahmad Hamo</h2>
+    <h2>1170381</h2>
+    <h2>Computer Engineering</h2>
+    <header/>
+
     <main>
-        <?php
+        <header>
 
-        if (isset($_GET['pid'])) {
-
-
-            $sqlStatement = "SELECT * FROM products WHERE pid = '" . $_GET['pid'] . "'";
-            // Prepare the results
-            $result = $pdo->query($sqlStatement);
-            // Execute the SQL query and get all rows
-            $row = $result->fetch();
-            $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
-            // Prepare the results
-            $result = $pdo->query($sqlStatement);
-            // Execute the SQL query and get all rows
-            $images = $result->fetchAll();
-            ?>
-            <section id="SingleItemsPage">
-                <div style="width: 100%; height = 300px; position: center;">
-                    <?php foreach ($images as $image){
-                        ?>
-
-                        <figure style="float: left;">
-                            <img src="../images/<?php echo $row['pid'] . "/" . $image['figure']; ?>.jpg" alt="image"
-                                 width="300" height="300" onClick="window.open(this.src)">
+        </header>
+        <hr>
 
 
-                        </figure>
-
-                        <?php
-                    }
-                    ?>
-
-                </div>
-            </section>
-
-            <?php
-        }
-        ?>
 
 
-    </main>
-</article>
+        <table style="width:80%">
+            <tr>
+                <th>
 
 
-<?php include '../HeaderAndFooter/footer.html'; ?>
+                    <figure>
+
+                        <ul>
+                            <li>
+                                <h2>Labs</h2>
+                            </li>
+
+                            <ol>
+
+                                <li><a href = "/Labs/Lab1/lab1.html">Lab1</a></li>
+                                <li><a href = "/Labs/Lab2/lab2.php">Lab2</a></li>
+                                <li><a href = "/Labs/Lab3/items.php">Lab3</a></li>
+                            </ol>
+                            <hr>
+                            <li>
+                                <h2>Assignments</h2>
+                            </li>
+                            <ol>
+                                <li>
+                                    <ul>
+                                        <li><a href = "/Assignments/assignment1/assignment1-part1.html">Assignment 1 - Part1</a></li>
+                                        <li><a href = "/Assignments/assignment1/assignment1-part2.html">Assignment 1 - Part2</a></li>
+                                        <li><a href = "/Assignments/assignment1/assignment1-part3.html">Assignment 1 - Part3</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <ul>
+                                        <li><a href = "/Assignments/assignment2/ApplicationSystem/mainMenu.php">Assignment 2</a></li>
+
+
+                                    </ul>
+                                </li>
+
+                            </ol>
+                            <hr>
+                    </figure>
+
+
+
+
+
+
+                </th>
+
+
+                <th text-align: left>
+
+                    <figure>
+                        <img href="/Assignments/assignment1/assignment1-part1.html" align="center" caption="My photo" title="My photo" alt="My photo" src="images/saleem3.jpg" height = 400 width = 400></img>
+
+                    </figure>
+
+
+                </th>
+            </tr>
+
+        </table>
+
+
+
+        <main/>
 
 </body>
-
 </html>

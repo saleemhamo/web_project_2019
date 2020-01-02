@@ -2,7 +2,7 @@
 session_name('loggedIn');
 session_start();
 
-include '../shared/dbConf.php';
+include '../Shared/dbConf.php';
 include '../HeaderAndFooter/header.php';
 ?>
 <!doctype html>
@@ -57,7 +57,7 @@ include '../HeaderAndFooter/header.php';
 
             </div>
 
-            <a href="<?php echo "../shared/addTocart.php?pid=" . $row['pid']; ?>" class="itemButtons"
+            <a href="<?php echo "../Shared/addToCart.php?pid=" . $row['pid']; ?>" class="itemButtons"
                style="margin: 120px 10px 50px 20px;"> Add To cart</a>
             <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>"
                style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>
@@ -115,7 +115,7 @@ include '../HeaderAndFooter/header.php';
                 </div>
 
 
-                <a href="<?php echo "../shared/addTocart.php?pid=" . $row['pid']; ?>" class="itemButtons"
+                <a href="<?php echo "../Shared/addToCart.php?pid=" . $row['pid']; ?>" class="itemButtons"
                    style="margin: 120px 10px 50px 20px;"> Add To cart</a>
                 <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>"
                    style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>
@@ -174,7 +174,7 @@ include '../HeaderAndFooter/header.php';
                 </div>
 
 
-                <a href="<?php echo "../shared/addTocart.php?pid=" . $row['pid']; ?>" class="itemButtons"
+                <a href="<?php echo "../Shared/addToCart.php?pid=" . $row['pid']; ?>" class="itemButtons"
                    style="margin: 120px 10px 50px 20px;"> Add To cart</a>
                 <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>"
                    style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>

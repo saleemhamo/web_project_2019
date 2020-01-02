@@ -13,7 +13,7 @@ if(isset($_SESSION['loggedIn']))
     ?>
     <script>
         alert("Added To Shopping Basket!");
-    window.location = '../products/products.php';
+    window.location = '../Products/products.php';
     </script>
     <?php
 } else {
@@ -21,7 +21,7 @@ if(isset($_SESSION['loggedIn']))
     <script>
 
         alert("Login First!");
-        window.location = '../login/login.php';
+        window.location = '../Login/login.php';
     </script>
 
 <?php

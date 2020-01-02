@@ -1,7 +1,7 @@
 <?php
 session_name('loggedIn');
 session_start();
-include '../shared/dbConf.php';
+include '../Shared/dbConf.php';
 
 ?>
 <!doctype html>

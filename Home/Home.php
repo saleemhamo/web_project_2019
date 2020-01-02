@@ -2,7 +2,7 @@
 session_name('loggedIn');
 session_start();
 
-include '../shared/dbConf.php';
+include '../Shared/dbConf.php';
 include '../HeaderAndFooter/header.php';
 
 ?>
@@ -49,7 +49,7 @@ include '../HeaderAndFooter/header.php';
 
         ?>
         <section class="homeProducts">
-                 <form id="items"   method="post" action="../products/singleproduct.php?pid=<?php echo $row['pid']; ?>">
+                 <form id="items"   method="post" action="../Products/singleProduct.php?pid=<?php echo $row['pid']; ?>">
                  <figure>
                             <img id="myImg" src="../images/<?php echo $row['pid'] . "/" . $image['figure']; ?>.jpg" alt="image"
                                  width="200" height="200">

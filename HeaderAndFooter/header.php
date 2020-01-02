@@ -38,7 +38,7 @@
     } ?>
     <div class="label1">
         <h1>Sharara Store</h1>
-        <form action="../search/searchResult.php" method="get">
+        <form action="../Search/searchResult.php" method="get">
             <input type="text" value="Search" name="searchValue">
             <input type="submit" placeholder="Search">
         </form>

@@ -2,7 +2,7 @@
 session_name('loggedIn');
 session_start();
 ?>
-<!doctype html><?php include '../shared/dbConf.php';
+<!doctype html><?php include '../Shared/dbConf.php';
 ?>
 <?php
 include("../HeaderAndFooter/header.php");

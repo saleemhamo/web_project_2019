@@ -77,7 +77,7 @@ include '../HeaderAndFooter/header.php'; ?>
 
 </body>
 <?php include '../HeaderAndFooter/footer.html';
-include '../shared/dbConf.php';
+include '../Shared/dbConf.php';
 ?>
 </html>
 <?php

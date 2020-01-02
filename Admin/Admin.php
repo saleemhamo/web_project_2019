@@ -11,7 +11,6 @@ include '../shared/dbConf.php';
     <link rel="stylesheet" href="../style.css">
 </head>
 <style>
-
     table {
         border-collapse: collapse;
         width: 100%;
@@ -112,9 +111,6 @@ include '../shared/dbConf.php';
            <th colspan="2">
 
            </th>
-
-
-
         </tr>
 
         <?php
@@ -167,8 +163,6 @@ include '../shared/dbConf.php';
                    <input type="button" value="Update" name="update"</input>
                </td>
            </tr>
-
-
     <?php
 }
         ?>

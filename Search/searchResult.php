@@ -14,25 +14,16 @@ include("../shared/dbConf.php");
     <h1 class="label2">Search Result</h1>
     <?php
     $sqlStatement = "SELECT * FROM products WHERE name LIKE '%". $_GET['searchValue']."%'";
-    // Prepare the results
     $result = $pdo->query($sqlStatement);
-    // Execute the SQL query and get all rows
     $rows = $result->fetchAll();
-
-    //echo $_SESSION['loggedIn'];
-
 
     foreach ($rows as $row) {
         $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
-        // Prepare the results
         $result = $pdo->query($sqlStatement);
-        // Execute the SQL query and get all rows
         $images = $result->fetchAll();
         if (!empty($images[0])) {
             $f = $images[0];
         }
-
-        //echo $row['pid'];
         ?>
 
         <section id="SingleItems">

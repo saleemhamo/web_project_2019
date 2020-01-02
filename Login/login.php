@@ -2,7 +2,6 @@
 session_name('loggedIn');
 session_start();
 include '../shared/dbConf.php';
-
 ?>
 <!doctype html>
 <html>
@@ -11,7 +10,6 @@ include '../shared/dbConf.php';
     <link rel="stylesheet" href="../style.css">
 </head>
 <body style="background-color:#4CAF50; margin-top: 150px;">
-
 <article>
     <main>
         <?php
@@ -20,22 +18,16 @@ include '../shared/dbConf.php';
             $loggedIn = true;
         } else {
             $loggedIn = false;
-
         }
-
         ?>
-
-        <section id="login">
-
+    <section id="login">
             <form action="login.php" method="post" class="myForm">
                 <div>
                     <img src="../images/shop.png" alt="Logo" width="120" hight="80">
                 </div>
-
                 <div>
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" required class="form-control"/>
-
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password" required class="form-control"/>
                     <input style="float: left; margin: 15px 100px 10px 260px;" type="submit" name="login" value="Login"/>
@@ -45,11 +37,7 @@ include '../shared/dbConf.php';
             <br><br><br><br>
             <a class="row" href="../Registration/Registration.php" style="float: left;">Create Account</a>
         </section>
-
-
         <?php
-
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($_POST['email'] === "abumaher@abc.com") {
@@ -57,25 +45,19 @@ include '../shared/dbConf.php';
                 ?>
                 <script>
                     alert("You logged is as admin");
-
                 </script>
                 <script>
                     window.location = '../admin/admin.php';
                 </script>
-
-
             <?php
             } else{
             ?>
                 <script>
                     alert("Wrong admin password!");
                 </script>
-
-
             <?php
             }
             } else {
-
             $sqlStatement = "SELECT COUNT(1) FROM customers WHERE email = '" . $_POST['email'] . "'";
             // Prepare the results
             $result = $pdo->query($sqlStatement);
@@ -86,10 +68,7 @@ include '../shared/dbConf.php';
             $sqlStatement = "SELECT * FROM customers WHERE email = '" . $_POST['email'] . "'";
             $result = $pdo->query($sqlStatement);
             $row = $result->fetch();
-
             if ($row['password'] === $_POST['password']) {
-
-
             $_SESSION['loggedIn'] = [];
             $_SESSION['loggedIn'] = $row;
             $_SESSION['loggedIn']['cart'] = [];
@@ -98,25 +77,17 @@ include '../shared/dbConf.php';
                 <script>
                     window.location = '../Home/Home.php';
                 </script>
-
                 <?php
-
             } else {
                 echo "Incorrect Password!";
-
             }
             } else {
                 echo $_POST['email'] . "Does not Exist!";
             }
             }
         }
-
-
         ?>
-
-
     </main>
-
 </article>
 </body>
 <?php include '../HeaderAndFooter/footer.html'; ?>

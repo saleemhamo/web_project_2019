@@ -1,7 +1,6 @@
 <?php
 session_name('loggedIn');
 session_start();
-
 include '../shared/dbConf.php';
 include '../HeaderAndFooter/header.php';
 ?>
@@ -17,30 +16,18 @@ include '../HeaderAndFooter/header.php';
     <h1 class="label2">Clothes</h1>
     <?php
     $sqlStatement = "SELECT * FROM products WHERE category ='clothes'";
-    // Prepare the results
     $result = $pdo->query($sqlStatement);
-    // Execute the SQL query and get all rows
     $rows = $result->fetchAll();
-
-    //echo $_SESSION['loggedIn'];
-
-
     foreach ($rows as $row) {
         $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
-// Prepare the results
         $result = $pdo->query($sqlStatement);
-// Execute the SQL query and get all rows
         $images = $result->fetchAll();
         if (!empty($images[0])) {
             $f = $images[0];
         }
-
-//echo $row['pid'];
         ?>
-
         <section id="SingleItems">
             <div>
-
                 <figure style="float: left">
                     <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
                          height="250">
@@ -72,25 +59,16 @@ include '../HeaderAndFooter/header.php';
     <h1 class="label2">Cosmetics</h1>
     <?php
     $sqlStatement = "SELECT * FROM products WHERE category ='cosmetics'";
-    // Prepare the results
     $result = $pdo->query($sqlStatement);
-    // Execute the SQL query and get all rows
     $rows = $result->fetchAll();
-
-    //echo $_SESSION['loggedIn'];
-
 
     foreach ($rows as $row) {
         $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
-// Prepare the results
         $result = $pdo->query($sqlStatement);
-// Execute the SQL query and get all rows
         $images = $result->fetchAll();
         if (!empty($images[0])) {
             $f = $images[0];
         }
-
-//echo $row['pid'];
         ?>
 
 
@@ -131,25 +109,16 @@ include '../HeaderAndFooter/header.php';
     <h1 class="label2">Food</h1>
     <?php
     $sqlStatement = "SELECT * FROM products WHERE category ='food'";
-    // Prepare the results
     $result = $pdo->query($sqlStatement);
-    // Execute the SQL query and get all rows
     $rows = $result->fetchAll();
-
-    //echo $_SESSION['loggedIn'];
-
 
     foreach ($rows as $row) {
         $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
-// Prepare the results
         $result = $pdo->query($sqlStatement);
-// Execute the SQL query and get all rows
         $images = $result->fetchAll();
         if (!empty($images[0])) {
             $f = $images[0];
         }
-
-//echo $row['pid'];
         ?>
 
 

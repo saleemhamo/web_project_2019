@@ -20,17 +20,21 @@ include '../Shared/dbConf.php';
         text-align: left;
         color: white;
     }
+
     td {
         text-align: left;
         padding: 8px;
     }
-    tr{
+
+    tr {
         height: 150px;
     }
-    input [type=text]{
+
+    input [type=text] {
         height: 50px;
     }
-    input[type=submit],[type=button] {
+
+    input[type=submit], [type=button] {
         background-color: #4CAF50;
         color: white;
         padding: 12px 20px;
@@ -40,13 +44,20 @@ include '../Shared/dbConf.php';
         float: right;
     }
 
-    tr:nth-child(even) {background-color: darkgray;}
-    tr:nth-child(odd) {background-color: lightslategrey;}
-.adminNav{
-    width: 100%;
-    margin: 10px 20px 5px 250px;
-}
-    .adminNav input{
+    tr:nth-child(even) {
+        background-color: darkgray;
+    }
+
+    tr:nth-child(odd) {
+        background-color: lightslategrey;
+    }
+
+    .adminNav {
+        width: 100%;
+        margin: 10px 20px 5px 250px;
+    }
+
+    .adminNav input {
         background-color: #333333;
         color: white;
         padding: 12px 20px;
@@ -62,116 +73,136 @@ include '../Shared/dbConf.php';
 <body style="margin-top: 150px">
 
 <article>
-<main>
-  <?php
-
-    $sqlStatement = "SELECT * FROM products";
-    // Prepare the results
-    $result = $pdo->query($sqlStatement);
-    // Execute the SQL query and get all rows
-    $rows = $result->fetchAll();
-
-   ?>
-    <div class="adminNav row">
-        <a href="../admin/addNewProduct.php"><input type="button" value="Add New Product"></a>
-        <a href="../admin/viewCustomers.php"><input type="button" value="View Customers"></a>
-    </div>
-    <br>
-
-    <div style="overflow-x:auto;">
-    <table style="width=100%">
-        <tr style="height: 50px">
-            <th>
-
-            </th>
-            <th>
-                ID
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                category
-            </th>
-            <th>
-                price
-            </th>
-            <th>
-                description
-            </th>
-            <th>
-                size
-            </th>
-            <th>
-                remarks
-            </th>
-            <th>
-                quantity
-            </th>
-           <th colspan="2">
-
-           </th>
-        </tr>
-
+    <main>
         <?php
 
-
-    foreach ($rows as $row) {
-        $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
+        $sqlStatement = "SELECT * FROM products";
         // Prepare the results
         $result = $pdo->query($sqlStatement);
         // Execute the SQL query and get all rows
-        $images = $result->fetchAll();
-        if (!empty($images[0])) {
-            $f = $images[0];
-        }
+        $rows = $result->fetchAll();
+
         ?>
-           <tr>
-            <td>
-                <figure>
-                    <img src="../images/<?php echo $row['pid']."/".$f['figure'];?>.jpg" alt="image" width="100" height="100">
-                </figure>
-            </td>
-               <td>
-                   <?php echo $row['pid']?>
+        <div class="adminNav row">
+            <a href="addNewProduct.php"><input type="button" value="Add New Product"></a>
+            <a href="viewCustomers.php"><input type="button" value="View Customers"></a>
+        </div>
+        <br>
 
-            </td>
+        <div style="overflow-x:auto;">
+            <table style="width=100%">
+                <tr style="height: 50px">
+                    <th>
 
-            <td> <?php echo $row['name']?>
-            </td>
+                    </th>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        category
+                    </th>
+                    <th>
+                        price
+                    </th>
+                    <th>
+                        description
+                    </th>
+                    <th>
+                        size
+                    </th>
+                    <th>
+                        remarks
+                    </th>
+                    <th>
+                        quantity
+                    </th>
+                    <th colspan="2">
 
-            <td> <?php echo $row['category']?>
-            </td>
+                    </th>
+                </tr>
 
-            <td>   <?php echo $row['price']?>
-            </td>
-
-            <td><?php echo $row['description']?>
-            </td>
-
-            <td>   <?php echo $row['size']?>
-            </td>
-
-            <td> <?php echo $row['remarks']?>
-            </td>
-
-            <td> <?php echo $row['quantity']?>
-               <td>
-                   <input type="button" value="Delete" name="Delete"</input>
-               </td>
-               <td>
-                   <input type="button" value="Update" name="update"</input>
-               </td>
-           </tr>
-    <?php
-}
-        ?>
-
-    </table>
-    </div>
+                <?php
 
 
+                foreach ($rows as $row) {
+                    $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
+                    // Prepare the results
+                    $result = $pdo->query($sqlStatement);
+                    // Execute the SQL query and get all rows
+                    $images = $result->fetchAll();
+                    if (!empty($images[0])) {
+                        $f = $images[0];
+                    }
+                    ?>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image"
+                                     width="100" height="100">
+                            </figure>
+                        </td>
+                        <td>
+                            <?php echo $row['pid'] ?>
+
+                        </td>
+
+                        <td> <?php echo $row['name'] ?>
+                        </td>
+
+                        <td> <?php echo $row['category'] ?>
+                        </td>
+
+                        <td>   <?php echo $row['price'] ?>
+                        </td>
+
+                        <td><?php echo $row['description'] ?>
+                        </td>
+
+                        <td>   <?php echo $row['size'] ?>
+                        </td>
+
+                        <td> <?php echo $row['remarks'] ?>
+                        </td>
+
+                        <td> <?php echo $row['quantity'] ?>
+                        <td>
+                            <input type="button" value="Delete" name="Delete" onclick="delete(<?php echo $row['pid']?>)"/>
+                        </td>
+                        <td>
+                            <input type="button" value="Update" name="update"</input>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+
+            </table>
+        </div>
+        <script>
+                function delete(id){
+            $(document).ready(function(){
+                $(" .delete_data").click(function(){
+                    var del_id = $(this).attr('id');
+                    var parent = $(this).parent();
+                    $.ajax({
+                        type:'POST',
+                        url:'delete.php',
+                        data:'delete_id='+del_id,
+                        success:function(data) {
+                            if(data) { parent.slideUp(300,function() {
+                                parent.remove();
+                            } else { // Error }
+                            }
+                            });
+                });
+            });
+                }
+
+        </script>
 
 </body>
-<?php include '../HeaderAndFooter/footer.html';?>
+<?php include '../HeaderAndFooter/footer.html'; ?>
 </html>

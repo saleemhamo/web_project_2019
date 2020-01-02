@@ -11,9 +11,17 @@ include("../Shared/dbConf.php");
 </head>
 <body style="margin-top: 150px">
 <div id="result">
-    <h1 class="label2">Search Result</h1>
+    <h1 class="label2">Search Result
+
+        <select name="orderField" style="width: 250px; float:right; margin-right: 150px;">
+            <option style="font-family: 'Cambria';font-size: large;background-color: lightgreen">Name</option>
+            <option style="font-family: 'Cambria';font-size: large;background-color: lightgreen">Price</option>
+        </select>
+
+        <label style="float: right; margin-right: 20px;">Sort By</label>
+    </h1>
     <?php
-    $sqlStatement = "SELECT * FROM products WHERE name LIKE '%". $_GET['searchValue']."%'";
+    $sqlStatement = "SELECT * FROM products WHERE name LIKE '%" . $_GET['searchValue'] . "%'";
     // Prepare the results
     $result = $pdo->query($sqlStatement);
     // Execute the SQL query and get all rows
@@ -34,6 +42,7 @@ include("../Shared/dbConf.php");
 
         //echo $row['pid'];
         ?>
+
 
         <section id="SingleItems">
             <div>
@@ -56,7 +65,7 @@ include("../Shared/dbConf.php");
 
             <a href="<?php echo "../Shared/addToCart.php?pid=" . $row['pid']; ?>" class="itemButtons"
                style="margin: 120px 10px 50px 20px;"> Add To cart</a>
-            <a href=" <?php echo "singleProduct.php?&pid=" . $row['pid']; ?>"
+            <a href=" <?php echo "../Products/singleProduct.php?&pid=" . $row['pid']; ?>"
                style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>
 
         </section>

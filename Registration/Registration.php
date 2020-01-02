@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$pdo) {
         die("Could not connect to database");
-    } else echo "Connected to Database";
+//    } else echo "Connected to Database";
 
 
     $dob = $_POST['dateOfBirth'];
@@ -116,7 +116,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check the status
     if ($status) {
-        echo 'Data inserted successfully';
+        ?>
+        <script>
+            window.location = '../Login/login.php';
+        </script>
+
+<?php
+    }
+//        echo 'Data inserted successfully';
     } else {
         echo "ERROORR";
 

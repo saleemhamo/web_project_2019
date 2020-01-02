@@ -52,15 +52,15 @@ include '../Shared/dbConf.php';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            if ($_POST['email'] === "abumaher@abc.com") {
-            if ($_POST['password'] === "abumaher") {
+            if ($_POST['email'] === "admin@store.ps") {
+            if ($_POST['password'] === "hello") {
                 ?>
                 <script>
                     alert("You logged is as admin");
 
                 </script>
                 <script>
-                    window.location = '../admin/admin.php';
+                    window.location = '../Admin/Admin.php';
                 </script>
 
 

@@ -24,7 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare($sqlStatement);
         $status = $stmt->execute($pid, $_SESSION['loggedIn']['cid']);
         if ($status) {
-            $_SESSION['loggedIn']['cid']= [];
+
+            unset($_SESSION['loggedIn']['cart']);
+            $_SESSION['loggedIn']['cart']= [];
         } else {
             echo $stmt->error;
         }

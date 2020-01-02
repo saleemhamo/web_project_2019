@@ -11,13 +11,17 @@ session_start();
 <body>
 <article>
     <main>
+        <div style="margin-left: 45%;">
+            <a href="Login/login.php"><h1>Go To Project</h1></a>
+        </div>
         <div class="aboutUs">
             <p>
                 This site is a hypothetical souvenir store which is done as a term project for COMP334 Course at Birzeit
                 University.
             </p>
             <p>
-                <a href="https://github.com/saleemhamo/web_project_2019">Click here</a> to find the source code on <strong>github</strong>.
+                <a href="https://github.com/saleemhamo/web_project_2019">Click here</a> to find the source code on
+                <strong>github</strong>.
             </p>
             <p>
                 It was done by

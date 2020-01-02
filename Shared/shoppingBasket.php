@@ -82,7 +82,7 @@ include '../Shared/dbConf.php';
 
 
         <div style="overflow-x:auto;">
-            <form action="placeOrder.php" class="myForm row" style="margin-right: 50%">
+            <form action="configureCreditCard.php" class="myForm row" style="margin-right: 50%">
                 <input type="submit" value="Place Order" style="background-color: #333333">
             </form>
 

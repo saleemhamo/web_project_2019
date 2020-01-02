@@ -4,7 +4,6 @@ session_start();
 
 include '../Shared/dbConf.php';
 include '../HeaderAndFooter/header.php';
-
 ?>
 <!doctype html>
 <html>
@@ -36,8 +35,6 @@ include '../HeaderAndFooter/header.php';
     $result = $pdo->query($sqlStatement);
     // Execute the SQL query and get all rows
     $row = $result->fetch();
-
-
     $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
     // Prepare the results
     $result = $pdo->query($sqlStatement);
@@ -46,7 +43,6 @@ include '../HeaderAndFooter/header.php';
     if (!empty($images[0])) {
         $image = $images[0];
     }
-
         ?>
         <section class="homeProducts">
                  <form id="items"   method="post" action="../Products/singleProduct.php?pid=<?php echo $row['pid']; ?>">
@@ -71,26 +67,19 @@ include '../HeaderAndFooter/header.php';
         <?php
     }
     function addToCart(){
-
-
     }
-
     ?>
 </main>
-
 </article>
-
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="img01">
     <div id="caption"></div>
 </div>
-
 <script>
     // Get the modal
     var modal = document.getElementById("myModal");
-
     // Get the image and insert it inside the modal - use its "alt" text as a caption
     var img = document.getElementById("myImg");
     var modalImg = document.getElementById("img01");
@@ -100,7 +89,6 @@ include '../HeaderAndFooter/header.php';
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
     }
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 

@@ -3,10 +3,7 @@
 <head>
     <link rel="stylesheet" href="../../style.css">
 </head>
-
 <body>
-
-
 <div class="navbar">
 
     <a href="../Home/Home.php" style="padding: 0px"><img src="../images/shop.png" alt="icon" width="60" height="50"></a>
@@ -25,8 +22,6 @@
             <a href="../Products/products.php#food">Food </a>
         </div>
     </div>
-
-
     <?php if (isset($_SESSION['loggedIn'])) {
         ?>
         <a href="../Shared/shoppingBasket.php" style="float:right">Basket</a>

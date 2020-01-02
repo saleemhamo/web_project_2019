@@ -2,8 +2,6 @@
 session_name('loggedIn');
 session_start();
 include '../HeaderAndFooter/header.php'; ?>
-
-
 <!doctype html>
 <html>
 <head>
@@ -11,8 +9,6 @@ include '../HeaderAndFooter/header.php'; ?>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body style="margin-top: 150px;">
-
-
 <article>
     <main>
 
@@ -71,8 +67,6 @@ include '../HeaderAndFooter/header.php'; ?>
             </form>
         </div>
     </main>
-
-
 </article>
 
 </body>

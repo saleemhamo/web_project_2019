@@ -39,8 +39,6 @@ session_start();
         <figure>
             <img src="../images/ourPhoto.jpg" alt="photo" height="400" width="724" style="margin-left: 300px">
         </figure>
-
-
     </main>
 </article>
 

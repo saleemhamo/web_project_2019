@@ -140,8 +140,6 @@ include '../Shared/dbConf.php';
 
             </table>
         </div>
-
-
 </body>
 <?php include '../HeaderAndFooter/footer.html'; ?>
 </html>

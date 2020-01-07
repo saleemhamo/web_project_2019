@@ -13,8 +13,9 @@ include '../HeaderAndFooter/header.php';
     <!--    <script type="text/javascript" src="../shared/addToCart.js"></script>-->
 </head>
 <body style="margin-top: 150px;">
-<div id="clothes">
-    <h1 class="label2">Clothes</h1>
+
+<div style="margin-top: 150px">
+    <h1 id=clothes class="label2">Clothes</h1>
     <?php
     $sqlStatement = "SELECT * FROM products WHERE category ='clothes'";
     // Prepare the results
@@ -68,8 +69,9 @@ include '../HeaderAndFooter/header.php';
     }
     ?>
 </div>
-<div id="cosmetics">
-    <h1 class="label2">Cosmetics</h1>
+
+<div style="margin-top: 150px">
+    <h1 id=cosmetics class="label2">Cosmetics</h1>
     <?php
     $sqlStatement = "SELECT * FROM products WHERE category ='cosmetics'";
     // Prepare the results
@@ -127,8 +129,8 @@ include '../HeaderAndFooter/header.php';
     }
     ?>
 </div>
-<div id="food">
-    <h1 class="label2">Food</h1>
+<div>
+    <h1 id=food class="label2">Food</h1>
     <?php
     $sqlStatement = "SELECT * FROM products WHERE category ='food'";
     // Prepare the results
@@ -187,7 +189,6 @@ include '../HeaderAndFooter/header.php';
     }
     ?>
 </div>
-
-
 </body>
+
 </html>

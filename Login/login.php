@@ -56,6 +56,8 @@ include '../Shared/dbConf.php';
             if ($_POST['password'] === "hello") {
                 ?>
                 <script>
+
+                    $_SESSION['loggedIn']['user'] = "admin";
                     alert("You logged is as admin");
 
                 </script>
@@ -102,11 +104,23 @@ include '../Shared/dbConf.php';
                 <?php
 
             } else {
-                echo "Incorrect Password!";
+//                echo "Incorrect Password!";
+                ?>
+                <script>
+                    alert("Incorrect Password!");
+                </script>
+            <?php
 
             }
             } else {
-                echo $_POST['email'] . "Does not Exist!";
+?>
+                <script>
+                alert("Email Does not Exist!");
+                </script>
+<?php
+
+
+//                echo $_POST['email'] . "Does not Exist!";
             }
             }
         }

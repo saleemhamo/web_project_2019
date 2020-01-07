@@ -13,7 +13,9 @@
     <a href="../ContactUs/ContactUs.php">Contact Us</a>
     <a href="../AboutUs/AboutUs.php" style="float:left">About Us</a>
     <div class="dropdown">
-        <button class="dropbtn">Products
+        <button class="dropbtn" onclick="function products() {
+                    window.location = '../Products/products.php';
+        }">Products
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
@@ -24,22 +26,25 @@
     </div>
     <?php if (isset($_SESSION['loggedIn'])) {
         ?>
+        <a href="../Login/logout.php" style="float:right"">Logout</a>
         <a href="../Shared/shoppingBasket.php" style="float:right">Basket</a>
-        <a href="../Login/logout.php" style="float:right">Logout</a>
+        <p style="float: right; color: white"><?php echo $_SESSION['loggedIn']['name']; ?></p>
+
+
         <?php
     } else { ?>
-        <a href="../Login/login.php" style="float:right">Login</a>
+        <a href="../Login/login.php"  style="float:right">Login</a>
+
         <?php
     } ?>
     <div class="label1">
         <h1>Sharara Store</h1>
         <form action="../Search/searchResult.php" method="get">
-            <input type="text" value="Search" name="searchValue">
-            <input type="submit" placeholder="Search">
+            <input type="text" placeholder="Search" name="searchValue"/>
+            <input type="submit" placeholder="Search" value="Search">
         </form>
     </div>
 
-    <br>
 </div>
 </body>
 </html>

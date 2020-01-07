@@ -2,10 +2,10 @@
 session_name('loggedIn');
 session_start();
 ?>
-<!doctype html><?php include '../Shared/dbConf.php';
-?>
+<!doctype html>
 <?php
 include("../HeaderAndFooter/header.php");
+include '../Shared/dbConf.php';
 ?>
 <html>
 
@@ -85,19 +85,6 @@ include("../HeaderAndFooter/header.php");
 // Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // This file contains the database access information.
-    // This file also establishes a connection to MySQL
-    // and selects the database.
-    // Set the database access information as constants:
-
-    // create PDO Object:
-    $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
-
-    if (!$pdo) {
-        die("Could not connect to database");
-//    } else echo "Connected to Database";
-
-
     $dob = $_POST['dateOfBirth'];
     $res = explode('-', $dob);
     //ymd
@@ -108,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     // Write the SQL statement string to select all items
-    $sqlStatement = "INSERT INTO customers (name , email, address , telephone , password, dateOfBirth) VALUES (?,?,?,?,?,?)";
+    $sqlStatement = "INSERT INTO customers(name , email, address , telephone , password, dateOfBirth) VALUES (?,?,?,?,?,?)";
     // Prepare the statement
     $stmt = $pdo->prepare($sqlStatement);
     // Execute the SQL query and get all rows
@@ -122,12 +109,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </script>
 
 <?php
-    }
-//        echo 'Data inserted successfully';
-    } else {
-        echo "ERROORR";
-
-        echo $stmt->$error;
     }
 
 

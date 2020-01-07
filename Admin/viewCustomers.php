@@ -1,7 +1,8 @@
 <?php
 session_name('loggedIn');
 session_start();
-include '../HeaderAndFooter/header.php';
+include("../HeaderAndFooter/header.php");
+include("../HeaderAndFooter/adminHeader.php");
 include '../Shared/dbConf.php';
 ?>
 <!doctype html>
@@ -57,17 +58,6 @@ include '../Shared/dbConf.php';
         background-color: lightslategrey;
     }
 
-    .adminNav input {
-        background-color: #333333;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        float: left;
-        width: 30%;
-        margin 50px;
-    }
 
 </style>
 <body style="margin-top: 150px">

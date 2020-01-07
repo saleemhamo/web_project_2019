@@ -22,18 +22,30 @@ include '../Shared/dbConf.php';
     th {
         text-align: left;
         color: white;
+        width: 50px;
+        margin: 5px;
+        font-size: large;
+        font-family: Arial;
     }
+
     td {
+        font-size: large;
         text-align: left;
         padding: 8px;
+        width: 50px;
+        margin: 5px;
+        font-family: Arial;
     }
-    tr{
+
+    tr {
         height: 150px;
     }
-    input [type=text]{
+
+    input [type=text] {
         height: 50px;
     }
-    input[type=submit],[type=button] {
+
+    input[type=submit], [type=button] {
         background-color: #4CAF50;
         color: white;
         padding: 12px 20px;
@@ -43,12 +55,19 @@ include '../Shared/dbConf.php';
         float: right;
     }
 
-    tr:nth-child(even) {background-color: darkgray;}
-    tr:nth-child(odd) {background-color: lightslategrey;}
-    .adminNav{
+    tr:nth-child(even) {
+        background-color: darkgray;
+    }
+
+    tr:nth-child(odd) {
+        background-color: lightslategrey;
+    }
+
+    .adminNav {
         width: 100%;
     }
-    .adminNav input{
+
+    .adminNav input {
         background-color: #333333;
         color: white;
         padding: 12px 20px;
@@ -59,6 +78,9 @@ include '../Shared/dbConf.php';
         width: 30%;
         margin 50px;
     }
+    .head{
+        background-color: darkgray;;
+    }
 
 </style>
 <body style="margin-top: 150px">
@@ -67,30 +89,23 @@ include '../Shared/dbConf.php';
     <main>
 
 
-        <?php
-        $rows = [];
-        foreach($_SESSION['loggedIn']['cart'] as $pid)
-        {
-            $sqlStatement = "SELECT * FROM products WHERE pid ='".$pid."'";
-            // Prepare the results
-            $result = $pdo->query($sqlStatement);
-            // Execute the SQL query and get all rows
-            $row = $result->fetch();
-            array_push($rows,$row);
-        }
-        ?>
-
-
         <div style="overflow-x:auto;">
             <form action="configureCreditCard.php" class="myForm row" style="margin-right: 50%">
                 <input type="submit" value="Place Order" style="background-color: #333333">
             </form>
 
-            <table style="width=100%">
-                <tr style="height: 50px">
-                    <th>
+            <table style="width=100%;">
+                <tr style="height: 0">
 
+                </tr>
+                <tr style="height: 50px" class="head">
+                    <th>
+                        <figure>
+                            <img
+                                 width="100" height="0">
+                        </figure>
                     </th>
+
                     <th>
                         ID
                     </th>
@@ -98,88 +113,54 @@ include '../Shared/dbConf.php';
                         Name
                     </th>
                     <th>
-                        category
+                        Category
                     </th>
                     <th>
-                        price
+                        Price
                     </th>
                     <th>
-                        description
+                        Description
                     </th>
                     <th>
-                        size
+                        Size
                     </th>
                     <th>
-                        remarks
+                        Remarks
                     </th>
                     <th>
-                        quantity
+                        Quantity
                     </th>
                     <th>
 
                     </th>
-
                 </tr>
 
-                <?php
-
-
-                foreach ($rows as $row) {
-                    $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
-                    // Prepare the results
-                    $result = $pdo->query($sqlStatement);
-                    // Execute the SQL query and get all rows
-                    $images = $result->fetchAll();
-                    if (!empty($images[0])) {
-                        $f = $images[0];
-                    }
-                    ?>
-                    <tr>
-                        <td>
-                            <figure>
-                                <img src="../images/<?php echo $row['pid']."/".$f['figure'];?>.jpg" alt="image" width="100" height="100">
-                            </figure>
-                        </td>
-                        <td>
-                            <?php echo $row['pid']?>
-
-                        </td>
-
-                        <td> <?php echo $row['name']?>
-                        </td>
-
-                        <td> <?php echo $row['category']?>
-                        </td>
-
-                        <td>   <?php echo $row['price']?>
-                        </td>
-
-                        <td><?php echo $row['description']?>
-                        </td>
-
-                        <td>   <?php echo $row['size']?>
-                        </td>
-
-                        <td> <?php echo $row['remarks']?>
-                        </td>
-
-                        <td> <?php echo $row['quantity']?>
-                        <td>
-                            <form action="">
-                            <input type="submit" value="Delete" name="delete"/>
-                            </form>
-                        </td>
-                    </tr>
-                    <?php
-                }
-
-                ?>
-
             </table>
+            <div id="BASKET">
+
+            </div>
+
+
+                <!--              ajax-->
+                <script>
+                    var ajax = new XMLHttpRequest();
+                    var method = "POST";
+                    var url = "getBasket.php";
+                    var asynchronous = true;
+                    ajax.open(method, url, asynchronous);
+                    ajax.send();
+                    ajax.onreadystatechange = function () {
+                        if ((this.readyState == 4) && (this.status = 200)) {
+                            basket = document.getElementById("BASKET");
+                            basket.innerHTML = this.responseText;
+                        }
+                    }
+                </script>
+
+
         </div>
 
 
-
 </body>
-<?php include '../HeaderAndFooter/footer.html';?>
+<?php include '../HeaderAndFooter/footer.html'; ?>
 </html>

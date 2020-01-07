@@ -1,7 +1,8 @@
 <?php
 session_name('loggedIn');
 session_start();
-include '../HeaderAndFooter/header.php';
+include("../HeaderAndFooter/header.php");
+include("../HeaderAndFooter/adminHeader.php");
 include '../Shared/dbConf.php';
 ?>
 <!doctype html>
@@ -11,6 +12,9 @@ include '../Shared/dbConf.php';
     <link rel="stylesheet" href="../style.css">
 </head>
 <style>
+    body{
+        font-size: large;
+    }
     table {
         border-collapse: collapse;
         width: 100%;
@@ -52,22 +56,6 @@ include '../Shared/dbConf.php';
         background-color: lightslategrey;
     }
 
-    .adminNav {
-        width: 100%;
-        margin: 10px 20px 5px 250px;
-    }
-
-    .adminNav input {
-        background-color: #333333;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        float: left;
-        width: 30%;
-        margin 50px;
-    }
 
 </style>
 <body style="margin-top: 150px">
@@ -83,11 +71,7 @@ include '../Shared/dbConf.php';
         $rows = $result->fetchAll();
 
         ?>
-        <div class="adminNav row">
-            <a href="addNewProduct.php"><input type="button" value="Add New Product"></a>
-            <a href="viewCustomers.php"><input type="button" value="View Customers"></a>
-        </div>
-        <br>
+
 
         <div style="overflow-x:auto;">
             <table style="width=100%">
@@ -102,22 +86,22 @@ include '../Shared/dbConf.php';
                         Name
                     </th>
                     <th>
-                        category
+                        Category
                     </th>
                     <th>
-                        price
+                        Price
                     </th>
                     <th>
-                        description
+                        Description
                     </th>
                     <th>
-                        size
+                        Size
                     </th>
                     <th>
-                        remarks
+                        Remarks
                     </th>
                     <th>
-                        quantity
+                        Quantity
                     </th>
                     <th colspan="2">
 
@@ -168,11 +152,13 @@ include '../Shared/dbConf.php';
                         </td>
 
                         <td> <?php echo $row['quantity'] ?>
-                        <td>
-                            <input type="button" value="Delete" name="Delete" onclick="delete(<?php echo $row['pid']?>)"/>
                         </td>
                         <td>
-                            <input type="button" value="Update" name="update"</input>
+                            <?php $pid = $row['pid']?>
+                            <input type="button" value="Delete" name="Delete" onclick="window.location='deleteProduct.php?pid=<?php echo $pid?>'"/>
+                        </td>
+                        <td>
+                            <input type="button" value="Update" name="update" onclick="window.location='updateProduct.php?pid=<?php echo $pid?>'"/>
                         </td>
                     </tr>
                     <?php
@@ -181,27 +167,7 @@ include '../Shared/dbConf.php';
 
             </table>
         </div>
-        <script>
-                function delete(id){
-            $(document).ready(function(){
-                $(" .delete_data").click(function(){
-                    var del_id = $(this).attr('id');
-                    var parent = $(this).parent();
-                    $.ajax({
-                        type:'POST',
-                        url:'delete.php',
-                        data:'delete_id='+del_id,
-                        success:function(data) {
-                            if(data) { parent.slideUp(300,function() {
-                                parent.remove();
-                            } else { // Error }
-                            }
-                            });
-                });
-            });
-                }
 
-        </script>
 
 </body>
 <?php include '../HeaderAndFooter/footer.html'; ?>

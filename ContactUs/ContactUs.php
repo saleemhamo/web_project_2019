@@ -1,7 +1,9 @@
 <?php
 session_name('loggedIn');
 session_start();
-include '../HeaderAndFooter/header.php'; ?>
+include '../HeaderAndFooter/header.php';
+include '../Shared/dbConf.php';
+?>
 <!doctype html>
 <html>
 <head>
@@ -29,14 +31,6 @@ include '../HeaderAndFooter/header.php'; ?>
                         </td>
                         <td>
                             <input name="SenderEmail" type="text" maxlength="43" style="width:250px;"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="SenderLocation ">Sender Location :</label>
-                        </td>
-                        <td>
-                            <input name="SenderLocation" type="text" maxlength="90" style="width:250px;"/>
                         </td>
                     </tr>
                     <tr>
@@ -76,12 +70,19 @@ include '../Shared/dbConf.php';
 </html>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
-    $sqlStatement = "INSERT INTO messages(name, email, address, title, body) VALUES (?,?,?,?,?)";
+    $sqlStatement = "INSERT INTO messages(senderName, senderEmail, title, message) VALUES (?,?,?,?)";
     $stmt = $pdo->prepare($sqlStatement);
-    $status = $stmt->execute([$_POST['Name'], $_POST['SenderEmail'], $_POST['SenderLocation'], $_POST['Messagetitle'], $_POST['MessageBody']]);
+    $status = $stmt->execute([$_POST['Name'], $_POST['SenderEmail'], $_POST['Messagetitle'], $_POST['MessageBody']]);
     if ($status) {
-        echo 'Data inserted successfully';
+              ?>
+        <script>
+            alert("Message Sent successfully");
+
+        </script>
+
+<?php
+
+//        echo 'Data inserted successfully';
     } else {
         echo $stmt->error;
     }

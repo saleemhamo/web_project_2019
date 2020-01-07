@@ -12,26 +12,43 @@ include("../HeaderAndFooter/adminHeader.php");
 
 <head>
     <link rel="stylesheet" href="../style.css">
-
+    <style>
+        .col-30{
+            margin-left: 30px;
+        }
+    </style>
 </head>
 
 
 <body style="margin-top: 150px">
+<?php
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
+    $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+
+    if (!$pdo) {
+        die("Could not connect to database");
+    }
+
+    $sqlStatement = "SELECT * FROM products WHERE pid =" . $_GET['pid'];
+    // Prepare the results
+    $result = $pdo->query($sqlStatement);
+    // Execute the SQL query and get all rows
+    $row = $result->fetch();
+
+} ?>
 <div>
-
-    <!--Registration Form-->
-    <form style="background-color: grey; margin: 20px" class="myForm" method="post" action="addNewProduct.php">
+    <form style="background-color: grey; margin: 20px" class="myForm" method="post" action="update.php">
         <fieldset>
-            <legend><h2>Add Product</h2></legend>
+            <legend><h2>Update Product</h2></legend>
 
             <div class="row">
                 <div class="col-30">
                     <label for="name">Name</label>
                 </div>
                 <div class="col-40">
-                    <input type="text" name="name" placeholder="Enter  name..">
+                    <input type="text" name="name" value="<?php echo $row['name']?>">
                 </div>
             </div>
             <div class="row">
@@ -39,7 +56,7 @@ include("../HeaderAndFooter/adminHeader.php");
                     <label for="email">Category</label>
                 </div>
                 <div class="col-40">
-                    <input type="text" name="category" placeholder="Enter category..">
+                    <input type="text" name="category" value="<?php echo $row['category']?>">
                 </div>
             </div>
             <div class="row">
@@ -47,7 +64,7 @@ include("../HeaderAndFooter/adminHeader.php");
                     <label for="password">Price</label>
                 </div>
                 <div class="col-40">
-                    <input type="text" name="price" placeholder="Enter price..">
+                    <input type="text" name="price" value="<?php echo $row['price']?>">
                 </div>
             </div>
             <div class="row">
@@ -55,7 +72,7 @@ include("../HeaderAndFooter/adminHeader.php");
                     <label for="dateOfBirth">Description</label>
                 </div>
                 <div class="col-40">
-                    <input type="text" name="description" placeholder="Enter description..">
+                    <input type="text" name="description" value="<?php echo $row['description']?>">
                 </div>
             </div>
             <div class="row">
@@ -63,7 +80,7 @@ include("../HeaderAndFooter/adminHeader.php");
                     <label for="address">Size</label>
                 </div>
                 <div class="col-40">
-                    <input type="text" name="size" placeholder="Enter size..">
+                    <input type="text" name="size" value="<?php echo $row['size']?>">
                 </div>
             </div>
 
@@ -72,7 +89,7 @@ include("../HeaderAndFooter/adminHeader.php");
                     <label for="phone">Remarks</label>
                 </div>
                 <div class="col-40">
-                    <input type="text" name="remarks" placeholder="Enter remarks..">
+                    <input type="text" name="remarks" value="<?php echo $row['remarks']?>">
                 </div>
             </div>
             <div class="row">
@@ -80,7 +97,7 @@ include("../HeaderAndFooter/adminHeader.php");
                     <label for="phone">Quantity</label>
                 </div>
                 <div class="col-40">
-                    <input type="number" name="quantity" placeholder="Enter quantity..">
+                    <input type="number" name="quantity" value="<?php echo $row['quantity']?>">
                 </div>
             </div>
 
@@ -90,34 +107,11 @@ include("../HeaderAndFooter/adminHeader.php");
         </fieldset>
     </form>
 </div>
-<!--TODO email login alert-->
-<?php
 
-// Check if request is POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 
-    if (!$pdo) {
-        die("Could not connect to database");
-    } else echo "Connected to Database";
 
-    // Write the SQL statement string to select all items
-    $sqlStatement = "INSERT INTO products (name , category, price , description , size, remarks , quantity) VALUES (?,?,?,?,?,?,?)";
-    // Prepare the statement
-    $stmt = $pdo->prepare($sqlStatement);
-    // Execute the SQL query and get all rows
-    $status = $stmt->execute([$_POST['name'], $_POST['category'], $_POST['price'], $_POST['description'], $_POST['size'], $_POST['remarks'],$_POST['quantity']]);
 
-    // Check the status
-    if ($status) {
-        echo 'Data inserted successfully';
-    } else {
-        echo "ERROORR";
-
-        echo $stmt->$error;
-    }
-} ?>
 
 
 </body>

@@ -11,6 +11,20 @@ include '../Shared/dbConf.php';
     <link rel="stylesheet" href="../style.css">
 </head>
 <body style="background-color:#4CAF50; margin-top: 150px;">
+<?php
+if(empty($_SESSION['loggedIn']['cart'])){
+    ?>
+    <script>
+        alert("Your Basket is Empty!");
+        window.location = "shoppingBasket.php";
+    </script>
+
+<?php
+}
+
+?>
+
+
 <script>
     alert("Card Number For Abu Maher is 1111 and the password is the same!");
 </script>

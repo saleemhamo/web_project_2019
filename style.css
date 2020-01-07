@@ -141,9 +141,10 @@
     background: #dddddd;
     float: left;
     text-align: center;
-    height: 550px;
-    width: 99%;
-    margin: 10px;
+    height: 700px;
+    width: 95%;
+    margin: 20px;
+    margin-right: 20px;
 }
 #login {
     border-radius: 5px;
@@ -459,4 +460,26 @@ article {
     font-weight: bold;
     font-size: xx-large;
     border-radius: 5px;
+}
+
+/***********************************************************************************************************************************/
+
+
+
+.adminNav {
+    width: 100%;
+    margin: 10px 20px 5px 50px;
+}
+
+.adminNav input {
+    background-color: #333333;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+    width: 25%;
+    margin: 50px;
+    margin-top: 0px;
 }

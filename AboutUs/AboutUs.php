@@ -37,7 +37,7 @@ session_start();
             </p>
         </div>
         <figure>
-            <img src="../images/ourPhoto.jpg" alt="photo" height="400" width="724" style="margin-left: 300px">
+            <img src="../images/ourPhoto.jpg" alt="photo" height="400" width="724" style="margin-left: 300px; border-radius: 10px;">
         </figure>
     </main>
 </article>

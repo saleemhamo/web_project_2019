@@ -9,6 +9,11 @@ include '../Shared/dbConf.php';
 <head>
     <title>Sharara Store</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+        label{
+            font-size: x-large;
+        }
+    </style>
 </head>
 <body style="margin-top: 150px;">
 <article>

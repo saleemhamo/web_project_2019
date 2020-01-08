@@ -1,53 +1,66 @@
-
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Javascript: Slider</title>
-    <meta charset="windows-1252">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-
-        div{background-color: #95a5a6;width: 400px;overflow: hidden;margin: 50px auto;padding: 20px;}
-        img{border: 2px solid #fff;}
-
-        div button:first-of-type{float: left;}
-        div button:last-of-type{float: right;}
-
-        button{background-color: #fff; color: #27ae60; border: 2px solid #27ae60;
-            font-size: 20px; font-weight: bold; width: 50px; cursor: pointer;padding: 5px;}
-
-    </style>
-
-    <script>
-
-        var i = 0,images = ["images/1/fig1.jpg",
-            "images/1/fig2.jpg",
-            "images/1/fig3.jpg"];
-
-        function mySlide(param)
-        {
-            if(param === 'next')
-            {
-                i++;
-                if(i === images.length){ i = images.length - 1; }
-            }else{
-                i--;
-                if(i < 0){ i = 0; }
+    <script type='text/javascript'>
+        var req=null;
+        var console=null;
+        var READY_STATE_UNINITIALIZED=0;
+        var READY_STATE_LOADING=1;
+        var READY_STATE_LOADED=2;
+        var READY_STATE_INTERACTIVE=3;
+        var READY_STATE_COMPLETE=4;
+        function sendRequest(url,params,HttpMethod){
+            if (!HttpMethod){
+                HttpMethod="GET";
             }
-
-            document.getElementById('slide').src = images[i];
+            req=initXMLHTTPRequest();
+            if (req){
+                req.onreadystatechange=onReadyState;
+                req.open(HttpMethod,url,true);
+                req.setRequestHeader
+                ("Content-Type", "application/x-www-form-urlencoded");
+                req.send(params);
+            }
         }
-
+        function initXMLHTTPRequest(){
+            var xRequest=null;
+            if (window.XMLHttpRequest){
+                xRequest=new XMLHttpRequest();
+            } else if (window.ActiveXObject){
+                xRequest=new ActiveXObject
+                ("Microsoft.XMLHTTP");
+            }
+            return xRequest;
+        }
+        function onReadyState(){
+            var ready=req.readyState;
+            var data=null;
+            if (ready==READY_STATE_COMPLETE){
+                data=req.responseText;
+            }else{
+                data="loading...["+ready+"]";
+            }
+            toConsole(data);
+        }
+        function toConsole(data){
+            if (console!=null){
+                var newline=document.createElement("div");
+                console.appendChild(newline);
+                newline.innerHTML= data + "<br/>"
+            }
+        }
+        window.onload=function(){
+            console=document.getElementById('console');
+        }
     </script>
 </head>
 <body>
 
-<div>
-    <img src="images/1/fig1.jpg" id="slide" alt="" width="400" height="200">
-    <button onclick="mySlide('prev');"><</button>
-    <button onclick="mySlide('next');">></button>
-</div>
+<form>
+    First Name: <input type="text" id="txt1"  />
+    <button type="button" onclick="sendRequest('getcustomer.php','name='+txt1.value,'POST')">Send</button>
+</form>
+
+<div id='console'></div>
 
 </body>
 </html>

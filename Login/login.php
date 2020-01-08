@@ -43,7 +43,7 @@ include '../Shared/dbConf.php';
             </form>
 
             <br><br><br><br>
-            <a class="row" href="../Registration/Registration.php" style="float: left;">Create Account</a>
+            <a  class="row" href="../Registration/Registration.php" style="float: left; font-size: large">Create Account</a>
         </section>
 
 

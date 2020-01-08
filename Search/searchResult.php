@@ -1,8 +1,12 @@
 <?php
 session_name('loggedIn');
+session_name('search');
 session_start();
 include("../HeaderAndFooter/header.php");
 include("../Shared/dbConf.php");
+if(isset($_GET['searchValue'])) {
+    $_SESSION['search']['searchValue'] = $_GET['searchValue'];
+}
 ?>
 <!doctype html>
 <html>
@@ -14,66 +18,64 @@ include("../Shared/dbConf.php");
 <body style="margin-top: 150px">
 <div id="result">
     <h1 class="label2">Search Result
-
-        <select name="orderField" style="width: 250px; float:right; margin-right: 150px;">
-            <option style="font-family: 'Cambria';font-size: large;background-color: lightgreen">Name</option>
-            <option style="font-family: 'Cambria';font-size: large;background-color: lightgreen">Price</option>
-        </select>
+        <div class="dropdown"
+             style="float: right; margin-right: 200px; height: 50px; width: 150px;background-color: white;">
+            <button onclick="myFunction()" class="dropbtn" style="color: black;width: 150px; font-weight: bold">
+                Filter
+            </button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="searchSession.php?filter=name">Name</a>
+                <a href="searchSession.php?filter=price"">Price</a>
+            </div>
+        </div>
 
         <label style="float: right; margin-right: 20px;">Sort By</label>
     </h1>
-    <?php
-    $sqlStatement = "SELECT * FROM products WHERE name LIKE '%" . $_GET['searchValue'] . "%'";
-    // Prepare the results
-    $result = $pdo->query($sqlStatement);
-    // Execute the SQL query and get all rows
-    $rows = $result->fetchAll();
 
-    //echo $_SESSION['loggedIn'];
+    <div id="RESULT">
 
+    </div>
+    <!--             ajax-->
+    <script>
+        var ajax = new XMLHttpRequest();
+        var method = "POST";
+        var url = "sort.php";
+        var asynchronous = true;
+        ajax.open(method, url, asynchronous);
+        ajax.send();
+        ajax.onreadystatechange = function () {
+            if ((this.readyState == 4) && (this.status = 200)) {
+                basket = document.getElementById("RESULT");
+                basket.innerHTML = this.responseText;
+            }
+        }
+    </script>
 
-    foreach ($rows as $row) {
-        $sqlStatement = "SELECT * FROM images WHERE pid = '" . $row['pid'] . "'";
-        // Prepare the results
-        $result = $pdo->query($sqlStatement);
-        // Execute the SQL query and get all rows
-        $images = $result->fetchAll();
-        if (!empty($images[0])) {
-            $f = $images[0];
+    <script>
+        /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
         }
 
-        //echo $row['pid'];
-        ?>
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 
 
-        <section id="SingleItems">
-            <div>
-
-                <figure style="float: left">
-                    <img src="../images/<?php echo $row['pid'] . "/" . $f['figure']; ?>.jpg" alt="image" width="250"
-                         height="250">
-
-                </figure>
-
-            </div>
 
 
-            <div class="itemText">
-                <p>Name: <strong><?php echo $row['name']; ?> </strong></p>
-                <p>Price: <?php echo $row['price']; ?></p>
-                <p>Remarks: <?php echo $row['remarks']; ?></p>
-
-            </div>
-
-            <a href="<?php echo "../Shared/addToCart.php?pid=" . $row['pid']; ?>" class="itemButtons"
-               style="margin: 120px 10px 50px 20px;"> Add To cart</a>
-            <a href=" <?php echo "../Products/singleProduct.php?&pid=" . $row['pid']; ?>"
-               style="float: left; margin: 0px 200px 10px 20px;"><strong>More Info</strong></a>
-
-        </section>
-        <?php
-    }
-    ?>
 </div>
 </body>
 </html>
